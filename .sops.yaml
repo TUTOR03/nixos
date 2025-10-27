@@ -1,0 +1,13 @@
+keys:
+  - &msi-laptop age16lfk9vn94g5ss5epkgkek5sk8r28uajccugc7565dt4nk9g6zsysvkjgx3
+  - &sdev-pc age1833j3yjuckcvthdzdvnd9n6xqwagampdrs5njywj5sdcmky5lauqq4xz23
+
+creation_rules:
+  - path_regex: secrets/msi-laptop/.*\.yaml$
+    key_groups:
+      - age:
+          - *msi-laptop
+  - path_regex: secrets/sdev-pc/.*\.yaml$
+    key_groups:
+      - age:
+          - *sdev-pc

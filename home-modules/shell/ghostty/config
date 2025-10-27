@@ -1,0 +1,10 @@
+# Theme
+theme = GruvboxDark
+
+# Cursor
+cursor-style = bar
+cursor-style-blink = true
+
+# Font
+font-family = JetBrains Mono
+font-size = 14

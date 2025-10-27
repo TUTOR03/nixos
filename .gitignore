@@ -1,0 +1,9 @@
+secrets/**/*.dec
+secrets/**/*.yaml.dec
+secrets/**/*.json.dec
+.sops.yaml.dec
+
+# Age keys
+keys.txt
+*.key
+*.age
