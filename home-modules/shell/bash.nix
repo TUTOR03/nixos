@@ -1,4 +1,4 @@
-{ self, config, lib, pkgs, hostName, userName, ... }:
+{ flakePath, config, lib, pkgs, hostName, userName, ... }:
 
 {
   options = {
@@ -12,15 +12,15 @@
 
       shellAliases = {
         # NixOS system management
-        rebuild = "sudo nixos-rebuild switch --flake ${self}#${hostName}";
-        rebuild-boot = "sudo nixos-rebuild boot --flake ${self}#${hostName}";
-        rebuild-test = "sudo nixos-rebuild test --flake ${self}#${hostName}";
+        rebuild = "sudo nixos-rebuild switch --flake ${flakePath}#${hostName}";
+        rebuild-boot = "sudo nixos-rebuild boot --flake ${flakePath}#${hostName}";
+        rebuild-test = "sudo nixos-rebuild test --flake ${flakePath}#${hostName}";
 
         # Home Manager
-        rebuild-home = "home-manager switch --flake ${self}#${userName}@${hostName}";
+        rebuild-home = "home-manager switch --flake ${flakePath}#${userName}@${hostName}";
 
         # Flake operations
-        update = "nix flake update ${self}";
+        update = "nix flake update ${flakePath}";
 
         # Garbage collection
         nix-gc = "sudo nix-collect-garbage -d && nix-collect-garbage -d";

@@ -5,7 +5,6 @@
     ./boot.nix
     ./hardware.nix
     ./network.nix
-    ./sops.nix
   ];
 
   desktops.kde.enable = true;

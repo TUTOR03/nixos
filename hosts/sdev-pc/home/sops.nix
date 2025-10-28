@@ -2,7 +2,7 @@
 
 {
   sops = {
-    defaultSopsFile = "${self}/secrets/${hostName}/home.yaml";
+    defaultSopsFile = self + "/secrets/${hostName}/home.yaml";
     age.sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/${hostName}" ];
 
     secrets = {

@@ -64,7 +64,7 @@
         vscode-extensions.overlays.default
       ];
 
-      mkHostWithUser = { system, hostName, userName, userEmail, stateVersion, extraHostModules ? [ ], extraHomeModules ? [ ] }:
+      mkHostWithUser = { flakePath, system, hostName, userName, userEmail, stateVersion, extraHostModules ? [ ], extraHomeModules ? [ ] }:
         let
           pkgs-unstable = import nixpkgs-unstable {
             inherit system;
@@ -95,7 +95,7 @@
               ./hosts/${hostName}
             ] ++ extraHostModules;
 
-            specialArgs = { inherit self hostName userName userEmail stateVersion; };
+            specialArgs = { inherit self flakePath hostName userName userEmail stateVersion; };
           };
 
           home = home-manager.lib.homeManagerConfiguration {
@@ -107,12 +107,13 @@
               ./hosts/${hostName}/home
             ] ++ extraHomeModules;
 
-            extraSpecialArgs = { inherit self hostName userName userEmail stateVersion; };
+            extraSpecialArgs = { inherit self flakePath hostName userName userEmail stateVersion; };
           };
         };
 
       configs = [
         {
+          flakePath = "/home/sdev/nixos";
           system = "x86_64-linux";
           hostName = "sdev-pc";
           userName = "sdev";
@@ -130,6 +131,7 @@
           ];
         }
         {
+          flakePath = "/home/sdev/nixos";
           system = "x86_64-linux";
           hostName = "msi-laptop";
           userName = "sdev";

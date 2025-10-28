@@ -2,8 +2,8 @@
 
 {
   sops = {
-    defaultSopsFile = "${self}/secrets/${hostName}/home.yaml";
-    age.sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/msi-laptop" ];
+    defaultSopsFile = self + "/secrets/${hostName}/home.yaml";
+    age.sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/${hostName}" ];
 
     secrets = {
       "ssh/github" = {
