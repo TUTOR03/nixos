@@ -31,7 +31,7 @@
           idleTimeoutWhenLocked = 900;
         };
         whenLaptopLidClosed = "sleep";
-        whenSleepingEnter = "standbyThenHibernate";
+        whenSleepingEnter = "standby";
       };
 
       general.pausePlayersOnSuspend = true;
