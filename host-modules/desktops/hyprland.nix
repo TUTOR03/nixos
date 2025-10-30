@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, userName, ... }:
 {
   options = {
     desktops.hyprland.enable = lib.mkEnableOption "Enables Hyprland desktop environment with UWSM";
@@ -13,6 +13,14 @@
       portalPackage = pkgs.xdg-desktop-portal-hyprland;
       withUWSM = true;
       xwayland.enable = true;
+    };
+
+    services.displayManager = {
+      defaultSession = "hyprland-uwsm";
+      autoLogin = {
+        enable = true;
+        user = userName;
+      };
     };
 
     xdg.portal = {
