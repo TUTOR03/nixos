@@ -7,17 +7,14 @@
     ./network.nix
   ];
 
-  desktops.kde.enable = true;
+  desktops.hyprland.enable = true;
+  wayland.windowManager.hyprland.settings = {
+    monitor = ",preferred,auto,1";
 
-  gaming = {
-    steam.enable = true;
-    heroic.enable = true;
-  };
+    "$mod" = "SUPER";
 
-  system-tools = {
-    archive.enable = true;
-    monitoring.enable = true;
-    network.enable = true;
-    utils.enable = true;
+    bind = [
+      "$mod, T, exec, kitty"
+    ];
   };
 }

@@ -40,6 +40,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
   };
 
   outputs =
@@ -54,6 +57,7 @@
     , disko
     , sops-nix
     , plasma-manager
+    , hyprland
     , ...
     }:
 
@@ -62,6 +66,10 @@
         nur.overlays.default
         rust-overlay.overlays.default
         vscode-extensions.overlays.default
+        (final: prev: {
+          hyprland = hyprland.packages.${prev.system}.hyprland;
+          xdg-desktop-portal-hyprland = hyprland.packages.${prev.system}.xdg-desktop-portal-hyprland;
+        })
       ];
 
       mkHostWithUser = { flakePath, system, hostName, userName, userEmail, stateVersion, extraHostModules ? [ ], extraHomeModules ? [ ] }:
