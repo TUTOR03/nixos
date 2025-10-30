@@ -15,22 +15,26 @@
       xwayland.enable = true;
     };
 
-    services = {
-      xserver.enable = true;
-      displayManager = {
-        enable = true;
-        sddm = {
-          enable = true;
-          wayland.enable = true;
-        };
-        defaultSession = "hyprland-uwsm";
-        autoLogin = {
-          enable = true;
-          user = userName;
-        };
-      };
-    };
+    # services = {
+    #   displayManager = {
+    #     enable = true;
+    #     sddm = {
+    #       enable = true;
+    #       wayland.enable = true;
+    #     };
+    #     defaultSession = "hyprland-uwsm";
+    #     autoLogin = {
+    #       enable = true;
+    #       user = userName;
+    #     };
+    #   };
+    # };
 
+    services.greetd.enable = true;
+    services.greetd.settings.default_session = {
+      command = "${pkgs.uwsm}/bin/uwsm start hyprland-uwsm.desktop";
+      user = userName;
+    };
 
     xdg.portal = {
       enable = true;
