@@ -20,6 +20,11 @@
     firefox.enable = true;
   };
 
+  shell = {
+    bash.enable = true;
+    ghostty.enable = true;
+  };
+
   git.enable = true;
   ssh.enable = true;
   programs.ssh.matchBlocks = {

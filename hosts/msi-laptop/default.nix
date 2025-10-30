@@ -7,5 +7,6 @@
     ./network.nix
   ];
 
+  caches.hyprland.enable = true;
   desktops.hyprland.enable = true;
 }

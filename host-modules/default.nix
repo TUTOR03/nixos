@@ -4,5 +4,6 @@
     ./desktops
     ./gaming
     ./system-tools
+    ./caches.nix
   ];
 }
