@@ -17,7 +17,7 @@
 
     services.displayManager = {
       enable = true;
-      greetd.enable = true;
+      sddm.enable = true;
       defaultSession = "hyprland-uwsm";
       autoLogin = {
         enable = true;
