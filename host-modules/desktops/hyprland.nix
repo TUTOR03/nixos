@@ -15,18 +15,22 @@
       xwayland.enable = true;
     };
 
-    services.displayManager = {
-      enable = true;
-      sddm = {
+    services = {
+      xserver.enable = true;
+      displayManager = {
         enable = true;
-        wayland.enable = true;
-      };
-      defaultSession = "hyprland-uwsm";
-      autoLogin = {
-        enable = true;
-        user = userName;
+        sddm = {
+          enable = true;
+          wayland.enable = true;
+        };
+        defaultSession = "hyprland-uwsm";
+        autoLogin = {
+          enable = true;
+          user = userName;
+        };
       };
     };
+
 
     xdg.portal = {
       enable = true;
