@@ -20,7 +20,7 @@
         rebuild-home = "home-manager switch --flake ${flakePath}#${userName}@${hostName}";
 
         # Flake operations
-        update = "nix flake update ${flakePath}";
+        update = "nix flake update --flake ${flakePath}";
 
         # Garbage collection
         nix-gc = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
