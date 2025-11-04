@@ -9,7 +9,7 @@
       "$mod, T, Terminal, exec, uwsm app -- ghostty"
       "$mod, B, Browser, exec, uwsm app -- firefox"
       # Tiling
-      "$mod, Q, Close window, exec, killactive"
+      "$mod, Q, Close window, killactive,"
     ];
 
     bindm = [
