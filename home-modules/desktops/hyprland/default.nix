@@ -5,14 +5,14 @@
   };
 
   imports = [
-    "./binds.nix"
-    "./env.nix"
-    "./general.nix"
-    "./inputs.nix"
-    "./looknfeel.nix"
-    "./monitors.nix"
-    "./windows.nix"
-    "./workspaces.nix"
+    ./binds.nix
+    ./env.nix
+    ./general.nix
+    ./inputs.nix
+    ./looknfeel.nix
+    ./monitors.nix
+    ./windows.nix
+    ./workspaces.nix
   ];
 
   config = lib.mkIf config.desktops.hyprland.enable {
