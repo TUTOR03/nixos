@@ -14,7 +14,7 @@
       gaps_workspaces = 0;
 
       "col.active_border" = "$activeBorderColor";
-      "col.inactive_border" = "$activeBorderColor";
+      "col.inactive_border" = "$inactiveBorderColor";
 
       resize_on_border = false;
 

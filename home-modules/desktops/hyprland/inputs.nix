@@ -16,5 +16,9 @@
         natural_scroll = false;
       };
     };
+
+    gestures = {
+      workspace_swipe = true;
+    };
   };
 }
