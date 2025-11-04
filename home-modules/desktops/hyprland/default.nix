@@ -4,7 +4,7 @@
     desktops.hyprland.enable = lib.mkEnableOption "Enables Hyprland user configuration";
   };
 
-  imports = lib.optionals config.desktops.hyprland.enable [
+  imports = [
     "./binds.nix"
     "./env.nix"
     "./general.nix"
