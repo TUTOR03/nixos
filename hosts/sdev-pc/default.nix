@@ -11,6 +11,7 @@
 
   gaming = {
     steam.enable = true;
+    lutris.enable = true;
     heroic.enable = true;
   };
 
