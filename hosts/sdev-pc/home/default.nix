@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     discord
     obsidian
+    telegram-desktop
   ];
 
   desktops.kde.enable = true;
