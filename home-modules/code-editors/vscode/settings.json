@@ -109,6 +109,11 @@
   "json.schemaDownload.enable": true,
   "http.proxySupport": "fallback",
 
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+
   // Markdown
   "markdown-pdf.displayHeaderFooter": false,
 

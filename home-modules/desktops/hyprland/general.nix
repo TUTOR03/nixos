@@ -1,10 +1,10 @@
-{ ... }:
+{ lib, ... }:
 
 {
   wayland.windowManager.hyprland.settings = {
     general = {
-      layout = "dwindle";
-      allow_tearing = false;
+      layout = lib.mkDefault "dwindle";
+      allow_tearing = lib.mkDefault false;
     };
   };
 }

@@ -1,4 +1,5 @@
 { config, lib, pkgs, ... }:
+
 {
   options = {
     desktops.hyprland.enable = lib.mkEnableOption "Enables Hyprland user configuration";
@@ -13,6 +14,7 @@
     ./monitors.nix
     ./windows.nix
     ./workspaces.nix
+    ./waybar
   ];
 
   config = lib.mkIf config.desktops.hyprland.enable {
@@ -24,6 +26,12 @@
       systemd = {
         enable = false;
         variables = [ "--all" ];
+      };
+
+      settings = {
+        exec-once = [
+          "uwsm app -- waybar"
+        ];
       };
     };
   };

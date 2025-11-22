@@ -3,17 +3,17 @@
 {
   wayland.windowManager.hyprland.settings = {
     input = {
-      kb_layout = "us,ru";
-      kb_options = "grp:alt_shift_toggle";
+      kb_layout = lib.mkDefault "us,ru";
+      kb_options = lib.mkDefault "grp:alt_shift_toggle";
 
-      repeat_rate = 40;
-      repeat_delay = 600;
+      repeat_rate = lib.mkDefault 40;
+      repeat_delay = lib.mkDefault 600;
 
-      sensitivity = 0;
-      follow_mouse = 1;
+      sensitivity = lib.mkDefault 0;
+      follow_mouse = lib.mkDefault 1;
       touchpad = {
-        scroll_factor = 0.4;
-        natural_scroll = false;
+        scroll_factor = lib.mkDefault 0.4;
+        natural_scroll = lib.mkDefault false;
       };
     };
   };
