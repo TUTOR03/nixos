@@ -9,4 +9,9 @@
 
   caches.hyprland.enable = true;
   desktops.hyprland.enable = true;
+
+  gaming = {
+    steam.enable = true;
+  };
+
 }
