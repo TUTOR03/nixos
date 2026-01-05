@@ -9,6 +9,8 @@
     discord
     obsidian
     telegram-desktop
+    qbittorrent
+    vlc
   ];
 
   desktops.kde.enable = true;
