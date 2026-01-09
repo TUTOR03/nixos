@@ -1,0 +1,45 @@
+/* Neutral base palette */
+@define-color neutral-0  #1D2021;
+@define-color neutral-1  #282828;
+@define-color neutral-2  #3C3836;
+@define-color neutral-3  #504945;
+@define-color neutral-4  #665C54;
+@define-color neutral-5  #7C6F64;
+@define-color neutral-6  #928374;
+@define-color neutral-7  #A89984;
+@define-color neutral-8  #BDAE93;
+@define-color neutral-9  #D5C4A1;
+@define-color neutral-10 #EBDBB2;
+
+/* Background surfaces - hierarchy from darkest to lightest */
+@define-color bg-primary            @neutral-2;
+@define-color bg-primary-hover      @neutral-4;
+@define-color bg-primary-active     @neutral-10;
+@define-color bg-primary-disabled   @neutral-2;
+
+@define-color bg-secondary          @neutral-3;
+@define-color bg-secondary-hover    @neutral-5;
+@define-color bg-secondary-active   @neutral-9;
+@define-color bg-secondary-disabled @neutral-3;
+
+@define-color bg-tertiary           @neutral-4;
+@define-color bg-tertiary-hover     @neutral-6;
+@define-color bg-tertiary-active    @neutral-8;
+@define-color bg-tertiary-disabled  @neutral-4;
+
+/* Content (text/icons) - hierarchy from most to least prominent */
+@define-color content-primary         @neutral-10;
+@define-color content-primary-active  @neutral-2;
+@define-color content-primary-disabled @neutral-8;
+
+@define-color content-secondary       @neutral-9;
+@define-color content-tertiary        @neutral-8;
+
+/* Stroke (borders/outlines) - hierarchy from strongest to subtlest */
+@define-color stroke-primary          @neutral-5;
+@define-color stroke-primary-hover    @neutral-6;
+@define-color stroke-primary-active   @neutral-5;
+@define-color stroke-primary-disabled @neutral-3;
+
+@define-color stroke-secondary        @neutral-4;
+@define-color stroke-tertiary         @neutral-3;

@@ -16,13 +16,8 @@
     };
 
     packages = with pkgs; [
-      dejavu_fonts
-      liberation_ttf
       roboto
       roboto-mono
-      source-code-pro
-      freefont_ttf
-      unifont
 
       noto-fonts
       noto-fonts-cjk-sans
@@ -30,14 +25,9 @@
       noto-fonts-emoji
       noto-fonts-extra
 
-      source-han-sans
-      source-han-serif
-
-      nerd-fonts.fira-code
       nerd-fonts.jetbrains-mono
-      nerd-fonts.hack
-      nerd-fonts.roboto-mono
-      nerd-fonts.iosevka
+
+      google-fonts
     ];
   };
 
