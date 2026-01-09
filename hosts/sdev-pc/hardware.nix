@@ -18,6 +18,8 @@
         nvidiaBusId = "PCI:1:0:0";
       };
     };
+
+    xpadneo.enable = true;
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
