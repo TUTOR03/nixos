@@ -27,24 +27,24 @@
       "$mod, code:19, Switch to workspace 10, workspace, 10"
 
       # Move active window to a workspace with $mod + SHIFT + [0-9]
-      "$mod, code:10, Move window to workspace 1, movetoworkspace, 1"
-      "$mod, code:11, Move window to workspace 2, movetoworkspace, 2"
-      "$mod, code:12, Move window to workspace 3, movetoworkspace, 3"
-      "$mod, code:13, Move window to workspace 4, movetoworkspace, 4"
-      "$mod, code:14, Move window to workspace 5, movetoworkspace, 5"
-      "$mod, code:15, Move window to workspace 6, movetoworkspace, 6"
-      "$mod, code:16, Move window to workspace 7, movetoworkspace, 7"
-      "$mod, code:17, Move window to workspace 8, movetoworkspace, 8"
-      "$mod, code:18, Move window to workspace 9, movetoworkspace, 9"
-      "$mod, code:19, Move window to workspace 10, movetoworkspace, 10"
+      "$mod SHIFT, code:10, Move window to workspace 1, movetoworkspace, 1"
+      "$mod SHIFT, code:11, Move window to workspace 2, movetoworkspace, 2"
+      "$mod SHIFT, code:12, Move window to workspace 3, movetoworkspace, 3"
+      "$mod SHIFT, code:13, Move window to workspace 4, movetoworkspace, 4"
+      "$mod SHIFT, code:14, Move window to workspace 5, movetoworkspace, 5"
+      "$mod SHIFT, code:15, Move window to workspace 6, movetoworkspace, 6"
+      "$mod SHIFT, code:16, Move window to workspace 7, movetoworkspace, 7"
+      "$mod SHIFT, code:17, Move window to workspace 8, movetoworkspace, 8"
+      "$mod SHIFT, code:18, Move window to workspace 9, movetoworkspace, 9"
+      "$mod SHIFT, code:19, Move window to workspace 10, movetoworkspace, 10"
 
       # Switch next/prev workspace with $mod + page up/down
-      "$mod, Next, Switch to next workspace, workspace, m+1"
-      "$mod, Prior, Switch to prev workspace, workspace, m-1"
+      "$mod, page_up, Switch to next workspace, workspace, m+1"
+      "$mod, page_down, Switch to prev workspace, workspace, m-1"
 
       # Move window to next/prev workspace with $mod + SHIFT + page up/down
-      "$mod SHIFT, Next, Move window to next workspace, movetoworkspace, m+1"
-      "$mod SHIFT, Prior, Move window to prev workspace, movetoworkspace, m-1"
+      "$mod SHIFT, page_up, Move window to next workspace, movetoworkspace, m+1"
+      "$mod SHIFT, page_down, Move window to prev workspace, movetoworkspace, m-1"
 
       # Resize active window
       "$mod, code:20, Expand window left, resizeactive, -100 0"
