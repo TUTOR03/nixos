@@ -16,6 +16,10 @@
     ghostty.enable = true;
   };
 
+  code-editors = {
+    vscode.enable = true;
+  };
+
   git.enable = true;
   ssh.enable = true;
   programs.ssh.matchBlocks = {
