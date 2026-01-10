@@ -3,6 +3,8 @@
 {
   programs.walker = {
     enable = true;
+    runAsService = true;
+    config = { };
   };
 
   home.file.".config/walker/config.toml".source = ./config.toml;
