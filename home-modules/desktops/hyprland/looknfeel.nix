@@ -2,12 +2,12 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    "$activeBorderColor" = "rgb(a89984)";
-    "$inactiveBorderColor" = "rgba(595959aa)";
+    "$activeBorderColor" = "rgb(BDAE93)";
+    "$inactiveBorderColor" = "rgb(928374)";
 
     general = {
-      gaps_in = 5;
-      gaps_out = 10;
+      gaps_in = 4;
+      gaps_out = 8;
 
       border_size = 2;
 
@@ -24,7 +24,7 @@
     };
 
     decoration = {
-      rounding = 0;
+      rounding = 6;
       shadow.enabled = false;
       blur.enabled = false;
     };

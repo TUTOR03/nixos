@@ -9,10 +9,12 @@
   min-width: 0;
   min-height: 0;
   box-shadow: none;
+  text-shadow: none;
   background: none;
+  transition: none;
 
   font-family: 'Google Sans', 'JetBrainsMono Nerd Font Propo';
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 
@@ -21,40 +23,59 @@ window#waybar {
 }
 
 /* All module groups or individual modules should have same surface and spacings */
+.module {
+  min-height: 24px;
+  min-width: 24px;
+}
+
 #workspaces,
 #clock,
 #tray,
-#group-sound-light,
-#group-net-bt,
+#pulseaudio,
+#backlight,
+#net-bt,
 #battery,
 #language,
 #custom-power {
   background-color: @bg-primary;
   color: @content-primary;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+#tray,
+#net-bt,
+#battery,
+#pulseaudio,
+#backlight,
+#language {
+  margin-right: 8px;
 }
 
 /* Consistent style for all tooltips */
 tooltip {
   background-color: @bg-primary;
   border: 2px solid @stroke-primary;
-  border-radius: 8px;
-  padding: 8px;
+  border-radius: 6px;
 }
 
 tooltip label {
   color: @content-primary;
 }
 
-/* Styles for workspace buttons */
+/* Styles for workspace module */
 #workspaces button {
   background-color: @bg-secondary;
   color: @content-primary;
-  border-radius: 8px;
-  padding: 4px 4px;
-  min-width: 32px;
-  min-height: 32px;
+  border-radius: 4px;
+  min-width: 24px;
+  min-height: 24px;
+  margin-right: 6px;
+  transition: all ease-in 200ms;
+}
+
+#workspaces button:last-child {
+  margin-right: 0;
 }
 
 #workspaces button:hover {
@@ -66,232 +87,14 @@ tooltip label {
   color: @content-primary-active;
 }
 
-#workspaces button.occupied {
-  border-bottom: 2px solid @content-secondary;
-}
-
-#workspaces button.active.occupied {
-  border-bottom-color: @content-primary-active;
-}
-
-/* #workspaces {
-  padding: 2px 4px;
-  margin-left: 4px;
-}
-
-#workspaces button {
-  background-color: @bg-secondary;
-  color: @content-primary;
-  border: 2px solid @stroke-secondary;
-  border-radius: 8px;
-  padding: 4px 12px;
-  margin: 2px 4px;
-  min-width: 32px;
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-#workspaces button:hover {
-  background-color: @bg-secondary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#workspaces button.active {
-  background-color: @bg-primary-active;
-  color: @content-primary-active;
-  border-color: @stroke-primary-active;
-  padding: 4px 20px;
-  min-width: 48px;
-  font-weight: 600;
-}
-
-#workspaces button.occupied {
-  border-bottom: 3px solid @content-secondary;
-  padding-bottom: 3px;
-}
-
-#workspaces button.active.occupied {
-  border-bottom-color: @content-primary-active;
-}
-
-#workspaces button.urgent {
-  background-color: @bg-tertiary;
-  border-color: @stroke-primary;
-  animation: urgent-pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes urgent-pulse {
-  from {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-#clock {
-  font-weight: 600;
-  padding: 4px 16px;
-  font-size: 14px;
-}
-
-#clock:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#pulseaudio {
-  padding: 4px 14px;
-}
-
-#pulseaudio:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#pulseaudio.muted {
-  color: @content-primary-disabled;
-  border-color: @stroke-primary-disabled;
-  opacity: 0.6;
-}
-
-#backlight {
-  padding: 4px 14px;
-}
-
-#backlight:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#network {
-  padding: 4px 14px;
-}
-
-#network:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#network.disconnected {
-  color: @content-primary-disabled;
-  border-color: @stroke-primary-disabled;
-  opacity: 0.6;
-}
-
-#bluetooth {
-  padding: 4px 14px;
-}
-
-#bluetooth:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#bluetooth.disabled {
-  color: @content-primary-disabled;
-  border-color: @stroke-primary-disabled;
-  opacity: 0.6;
-}
-
-#battery {
-  padding: 4px 14px;
-}
-
-#battery:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#battery.warning {
-  color: @content-secondary;
-  border-color: @stroke-primary;
-}
-
-#battery.critical {
-  background-color: @bg-tertiary;
-  border-color: @stroke-primary;
-  animation: battery-blink 1s ease-in-out infinite;
-}
-
-@keyframes battery-blink {
-  from {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-#battery.charging {
-  color: @content-secondary;
-}
-
-#language {
-  padding: 4px 14px;
-}
-
-#language:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#tray {
-  padding: 4px 8px;
-}
-
-#tray:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#tray > .passive {
-  opacity: 0.7;
-}
-
-#tray > .needs-attention {
-  color: @content-secondary;
-  animation: tray-attention 1s ease-in-out infinite;
-}
-
-@keyframes tray-attention {
-  from {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-#idle_inhibitor {
-  padding: 4px 12px;
-}
-
-#idle_inhibitor:hover {
-  background-color: @bg-primary-hover;
-  border-color: @stroke-primary-hover;
-}
-
-#idle_inhibitor.activated {
-  color: @content-secondary;
-  border-color: @stroke-primary;
-}
-
+/* Make power button square */
 #custom-power {
-  padding: 4px 12px;
   font-size: 16px;
+  padding: 6px;
 }
 
 #custom-power:hover {
-  background-color: @bg-tertiary-hover;
-  border-color: @stroke-primary-hover;
-  color: @content-primary;
-} */
+  background-color: @bg-primary-active;
+  color: @content-primary-active;
+  transition: all ease-in 200ms;
+}

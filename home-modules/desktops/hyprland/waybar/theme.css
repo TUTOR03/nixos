@@ -12,34 +12,26 @@
 @define-color neutral-10 #EBDBB2;
 
 /* Backgrounds */
-@define-color bg-primary            @neutral-2;
-@define-color bg-primary-hover      @neutral-4;
-@define-color bg-primary-active     @neutral-10;
-@define-color bg-primary-disabled   @neutral-2;
+@define-color bg-primary            @neutral-1;
+@define-color bg-primary-hover      @neutral-2;
+@define-color bg-primary-active     @neutral-9;
 
-@define-color bg-secondary          @neutral-3;
-@define-color bg-secondary-hover    @neutral-5;
-@define-color bg-secondary-active   @neutral-9;
-@define-color bg-secondary-disabled @neutral-3;
+@define-color bg-secondary          @neutral-2;
+@define-color bg-secondary-hover    @neutral-3;
+@define-color bg-secondary-active   @neutral-8;
 
-@define-color bg-tertiary           @neutral-4;
-@define-color bg-tertiary-hover     @neutral-6;
-@define-color bg-tertiary-active    @neutral-8;
-@define-color bg-tertiary-disabled  @neutral-4;
+@define-color bg-tertiary           @neutral-3;
+@define-color bg-tertiary-hover     @neutral-4;
+@define-color bg-tertiary-active    @neutral-7;
 
 /* Content (text/icons) */
-@define-color content-primary         @neutral-10;
-@define-color content-primary-active  @neutral-2;
-@define-color content-primary-disabled @neutral-8;
+@define-color content-primary         @neutral-9;
+@define-color content-primary-active  @neutral-1;
 
-@define-color content-secondary       @neutral-9;
-@define-color content-tertiary        @neutral-8;
+@define-color content-secondary       @neutral-8;
+@define-color content-tertiary        @neutral-7;
 
 /* Stroke (borders/outlines) */
 @define-color stroke-primary          @neutral-5;
-@define-color stroke-primary-hover    @neutral-6;
-@define-color stroke-primary-active   @neutral-5;
-@define-color stroke-primary-disabled @neutral-3;
-
 @define-color stroke-secondary        @neutral-4;
 @define-color stroke-tertiary         @neutral-3;
