@@ -64,7 +64,7 @@
     , plasma-manager
     , hyprland
     , walker
-    , , ...
+    , ...
     }:
 
     let
