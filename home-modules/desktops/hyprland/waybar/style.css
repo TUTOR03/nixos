@@ -8,60 +8,77 @@
   padding: 0;
   min-width: 0;
   min-height: 0;
+  box-shadow: none;
+  background: none;
 
-  /* Global font configuration */
-  font-family: 'Google Sans', 'JetBrainsMono Nerd Font Propo', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
+  font-family: 'Google Sans', 'JetBrainsMono Nerd Font Propo';
+  font-size: 16px;
+  font-weight: 600;
 }
 
 window#waybar {
-  /* Transparent background to show desktop through */
   background-color: transparent;
-  color: @content-primary;
-  transition: background-color 200ms ease-in-out;
 }
 
-/* All modules have rounded backgrounds with proper spacing */
+/* All module groups or individual modules should have same surface and spacings */
 #workspaces,
 #clock,
-#pulseaudio,
-#backlight,
-#network,
-#bluetooth,
+#tray,
+#group-sound-light,
+#group-net-bt,
 #battery,
 #language,
-#tray,
-#idle_inhibitor,
 #custom-power {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
   background-color: @bg-primary;
   color: @content-primary;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+/* Consistent style for all tooltips */
+tooltip {
+  background-color: @bg-primary;
   border: 2px solid @stroke-primary;
-  border-radius: 12px;
-  padding: 4px 12px;
-  margin: 4px 0;
-  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  padding: 8px;
 }
 
-/* Right-side modules get consistent spacing */
-#pulseaudio,
-#backlight,
-#network,
-#bluetooth,
-#battery,
-#language,
-#tray,
-#idle_inhibitor,
-#custom-power {
-  margin-right: 8px;
+tooltip label {
+  color: @content-primary;
 }
 
-/* Last module has no right margin */
-#custom-power {
-  margin-right: 4px;
+/* Styles for workspace buttons */
+#workspaces button {
+  background-color: @bg-secondary;
+  color: @content-primary;
+  border-radius: 8px;
+  padding: 4px 4px;
+  min-width: 32px;
+  min-height: 32px;
 }
 
-#workspaces {
+#workspaces button:hover {
+  background-color: @bg-secondary-hover;
+}
+
+#workspaces button.active {
+  background-color: @bg-primary-active;
+  color: @content-primary-active;
+}
+
+#workspaces button.occupied {
+  border-bottom: 2px solid @content-secondary;
+}
+
+#workspaces button.active.occupied {
+  border-bottom-color: @content-primary-active;
+}
+
+/* #workspaces {
   padding: 2px 4px;
   margin-left: 4px;
 }
@@ -127,18 +144,6 @@ window#waybar {
 #clock:hover {
   background-color: @bg-primary-hover;
   border-color: @stroke-primary-hover;
-}
-
-/* Calendar tooltip styling */
-tooltip {
-  background-color: @bg-primary;
-  border: 2px solid @stroke-primary;
-  border-radius: 12px;
-  padding: 12px;
-}
-
-tooltip label {
-  color: @content-primary;
 }
 
 #pulseaudio {
@@ -293,4 +298,4 @@ tooltip label {
   background-color: @bg-tertiary-hover;
   border-color: @stroke-primary-hover;
   color: @content-primary;
-}
+} */

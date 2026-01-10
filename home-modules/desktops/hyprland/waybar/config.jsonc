@@ -1,8 +1,10 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 40,
-  "spacing": 8,
+  "spacing": 4,
+  "margin-left": 4,
+  "margin-top": 4,
+  "margin-right": 4,
   "modules-left": [
     "hyprland/workspaces"
   ],
@@ -10,14 +12,11 @@
     "clock"
   ],
   "modules-right": [
-    "pulseaudio",
-    "backlight",
-    "network",
-    "bluetooth",
+    "tray",
+    "group/sound-light",
+    "group/net-bt",
     "battery",
     "hyprland/language",
-    "tray",
-    "idle_inhibitor",
     "custom/power"
   ],
   // LEFT MODULES 
@@ -26,57 +25,53 @@
     "format": "{id}",
     "on-click": "activate",
     "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": []
-    },
-    "all-outputs": false,
-    "active-only": false,
-    "show-special": false
+      "*": 5
+    }
   },
   // CENTER MODULES
   // Clock with calendar tooltip
   "clock": {
-    "interval": 1,
-    "format": "{:%H:%M:%S}",
-    "format-alt": "{:%A, %d %B %Y}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "interval": 60,
+    "format": "{:%H:%M %d.%m.%y}",
+    "tooltip-format": "{calendar}",
     "calendar": {
       "mode": "month",
-      "weeks-pos": "right",
       "on-scroll": 1,
       "format": {
         "months": "<span color='#ebdbb2'><b>{}</b></span>",
         "days": "<span color='#d5c4a1'>{}</span>",
-        "weeks": "<span color='#928374'>W{}</span>",
         "weekdays": "<span color='#a89984'><b>{}</b></span>",
         "today": "<span color='#3c3836' background='#ebdbb2'><b>{}</b></span>"
       }
-    },
-    "actions": {
-      "on-click-right": "mode",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
     }
   },
   // RIGHT MODULES
+  // List of running apps
+  "tray": {
+    "icon-size": 20,
+    "spacing": 8
+  },
+  // Group for sound and light
+  "group/sound-light": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "backlight"
+    ]
+  },
   // Audio control with volume display
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": "󰖁 Muted",
+    "format-muted": "",
     "format-icons": {
       "default": [
-        "󰕿",
-        "󰖀",
-        "󰕾"
+        "",
+        "",
+        ""
       ]
     },
     "scroll-step": 5,
-    // "on-click": "pavucontrol",
-    // "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "tooltip-format": "{desc}\nVolume: {volume}%"
+    "tooltip": false
   },
   // Screen brightness control
   "backlight": {
@@ -89,34 +84,44 @@
     ],
     "on-scroll-up": "brightnessctl set +5%",
     "on-scroll-down": "brightnessctl set 5%-",
-    "tooltip-format": "Brightness: {percent}%"
+    "tooltip": false
   },
-  // Network status and information
+  // Group for network and bluetooth
+  "group/net-bt": {
+    "orientation": "horizontal",
+    "modules": [
+      "network",
+      "bluetooth"
+    ]
+  },
+  // Network status
   "network": {
     "interval": 5,
-    "format-wifi": "󰖨 {signalStrength}%",
-    "format-ethernet": "󰈀 Connected",
-    "format-disconnected": "󰖪 Disconnected",
-    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n{essid}\nSignal: {signalStrength}%\n󰁞 {bandwidthDownBits}  󰁆 {bandwidthUpBits}",
-    "on-click": "nm-connection-editor"
+    "format": "{ifname}",
+    "format-wifi": "󰖩 ",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󱚼",
+    "tooltip-format-wifi": "{ifname}: {ipaddr}/{cidr}\n{essid}\nSignal: {signalStrength}%\n󰁞 {bandwidthDownBits}  󰁆 {bandwidthUpBits}",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}\n󰁞 {bandwidthDownBits}  󰁆 {bandwidthUpBits}"
   },
   // Bluetooth status
   "bluetooth": {
     "format": "󰂯 {status}",
-    "format-connected": "󰂱 {num_connections}",
-    "format-disabled": "󰂲 Off",
-    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-    "on-click": "blueman-manager"
+    "format-on": "󰂯",
+    "format-connected": "󰂰 {num_connections}",
+    "format-disabled": "󰂲",
+    "format-off": "󰂲",
+    "tooltip-format": "{controller_alias} {controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias} {controller_address}\n\n{num_connections} connected\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias} {device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias} {device_address} {device_battery_percentage}%"
   },
-  // Battery status with charging indication
+  // Battery status
   "battery": {
-    "interval": 60,
+    "interval": 30,
     "states": {
-      "warning": 30,
-      "critical": 15
+      "warning": 20,
+      "critical": 10
     },
     "format": "{icon} {capacity}%",
     "format-charging": "󰂄 {capacity}%",
@@ -139,30 +144,11 @@
   "hyprland/language": {
     "format": "󰌌 {}",
     "format-en": "EN",
-    "format-ru": "RU",
-    "on-click": "hyprctl switchxkblayout next",
-    "tooltip-format": "Keyboard: {long}"
+    "format-ru": "RU"
   },
-  // System tray for background apps
-  "tray": {
-    "icon-size": 16,
-    "spacing": 8,
-    "show-passive-items": true
-  },
-  // Idle inhibitor to prevent screen lock
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "󰅶",
-      "deactivated": "󰾪"
-    },
-    "tooltip-format-activated": "Idle inhibitor: ON",
-    "tooltip-format-deactivated": "Idle inhibitor: OFF"
-  },
-  // Power menu button
+  // Power button
   "custom/power": {
     "format": "󰐥",
     "tooltip": false
-    // "on-click": "wlogout"
   }
 }
