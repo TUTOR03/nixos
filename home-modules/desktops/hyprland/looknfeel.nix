@@ -2,7 +2,7 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    "$activeBorderColor" = "rgb(BDAE93)";
+    "$activeBorderColor" = "rgb(D5C4A1)";
     "$inactiveBorderColor" = "rgb(928374)";
 
     general = {
