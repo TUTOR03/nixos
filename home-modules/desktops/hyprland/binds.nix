@@ -52,6 +52,9 @@
       "$mod SHIFT, code:20, Shrink window up, resizeactive, 0 -100"
       "$mod SHIFT, code:21, Expand window down, resizeactive, 0 100"
 
+      # Apps launcher
+      "$mod, SPACE, Apps launcher, exec, walker"
+
       # Apps
       "$mod, T, Terminal, exec, uwsm app -- ghostty"
       "$mod, B, Browser, exec, uwsm app -- firefox"

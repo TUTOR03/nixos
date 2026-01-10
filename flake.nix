@@ -43,6 +43,11 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
   };
 
   outputs =
@@ -58,7 +63,8 @@
     , sops-nix
     , plasma-manager
     , hyprland
-    , ...
+    , walker
+    , , ...
     }:
 
     let
@@ -154,6 +160,7 @@
             sops-nix.homeManagerModules.sops
             plasma-manager.homeModules.plasma-manager
             arkenfox-nixos.hmModules.arkenfox
+            walker.homeManagerModules.default
           ];
         }
       ];
