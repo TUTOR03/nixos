@@ -29,10 +29,7 @@ window#waybar {
 #battery,
 #language,
 #custom-power {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4px;
+  gap: 32px;
   background-color: @bg-primary;
   color: @content-primary;
   border-radius: 8px;
