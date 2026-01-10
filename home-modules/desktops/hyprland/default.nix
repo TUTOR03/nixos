@@ -16,6 +16,7 @@
     ./workspaces.nix
     ./waybar
     ./walker
+    ./scripts
   ];
 
   config = lib.mkIf config.desktops.hyprland.enable {

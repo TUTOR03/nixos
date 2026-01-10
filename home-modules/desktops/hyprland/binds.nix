@@ -53,7 +53,7 @@
       "$mod SHIFT, code:21, Expand window down, resizeactive, 0 100"
 
       # Apps launcher
-      "$mod, SPACE, Apps launcher, exec, walker"
+      "$mod, SPACE, Apps launcher, exec, launch-walker"
 
       # Apps
       "$mod, T, Terminal, exec, uwsm app -- ghostty"
