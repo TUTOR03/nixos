@@ -78,5 +78,9 @@
       anr_missed_pings = 3;
       new_window_takes_over_fullscreen = 1;
     };
+
+    cursor = {
+      no_warps = true;
+    };
   };
 }
