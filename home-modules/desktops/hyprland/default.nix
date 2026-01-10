@@ -33,6 +33,8 @@
       settings = {
         exec-once = [
           "uwsm app -- waybar"
+          "uwsm-app -- elephant"
+          "uwsm-app -- walker --gapplication-service"
         ];
       };
     };
