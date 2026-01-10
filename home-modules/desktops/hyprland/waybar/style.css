@@ -29,7 +29,6 @@ window#waybar {
 #battery,
 #language,
 #custom-power {
-  gap: 32px;
   background-color: @bg-primary;
   color: @content-primary;
   border-radius: 8px;
