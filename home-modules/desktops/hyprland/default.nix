@@ -15,7 +15,7 @@
     ./windows.nix
     ./workspaces.nix
     ./waybar
-    ./walker
+    # ./walker
     ./scripts
   ];
 

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -11,6 +11,8 @@
     telegram-desktop
     qbittorrent
     vlc
+    spotify
+    unstable.protonplus
   ];
 
   desktops.kde.enable = true;
