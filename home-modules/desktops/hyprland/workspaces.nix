@@ -1,5 +1,7 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
-  wayland.windowManager.hyprland.settings = { };
+  config = lib.mkIf config.desktops.hyprland.enable {
+    wayland.windowManager.hyprland.settings = { };
+  };
 }

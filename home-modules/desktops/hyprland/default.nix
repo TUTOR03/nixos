@@ -2,7 +2,7 @@
 
 {
   options = {
-    desktops.hyprland.enable = lib.mkEnableOption "Enables Hyprland user configuration";
+    desktops.hyprland.enable = lib.mkEnableOption "Конфигурация Hyprland";
   };
 
   imports = [
@@ -15,7 +15,7 @@
     ./windows.nix
     ./workspaces.nix
     ./waybar
-    # ./walker
+    ./walker
     ./scripts
   ];
 

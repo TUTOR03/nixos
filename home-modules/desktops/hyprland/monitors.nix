@@ -1,11 +1,13 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 {
-  wayland.windowManager.hyprland.settings = {
-    monitor = lib.mkDefault [ ",preferred,auto,1" ];
+  config = lib.mkIf config.desktops.hyprland.enable {
+    wayland.windowManager.hyprland.settings = {
+      monitor = lib.mkDefault [ ",preferred,auto,1" ];
 
-    env = [
-      "GDK_SCALE,1"
-    ];
+      env = [
+        "GDK_SCALE,1"
+      ];
+    };
   };
 }
