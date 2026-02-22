@@ -2,11 +2,6 @@
 
 {
   boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-
     kernelPackages = pkgs.linuxPackages_latest;
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
@@ -29,6 +24,11 @@
     };
 
     kernelModules = [ "kvm-intel" ];
-    kernelParams = [ "quiet" "splash" "nvidia-drm.modeset=1" ];
+
+    kernelParams = [
+      "quiet"
+      "splash"
+      "nvidia-drm.modeset=1"
+    ];
   };
 }

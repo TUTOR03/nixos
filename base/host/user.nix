@@ -5,13 +5,6 @@
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "networkmanager"
-      "video"
-      "audio"
-      "input"
-      "storage"
-      "scanner"
-      "lp"
     ];
   };
 }

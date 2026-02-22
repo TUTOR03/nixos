@@ -1,11 +1,14 @@
+{ config, lib, ... }:
+
 {
   boot = {
     loader = {
-      efi.canTouchEfiVariables = true;
-      timeout = null;
+      efi.canTouchEfiVariables = lib.mkDefault true;
+      timeout = lib.mkDefault null;
+
       systemd-boot = {
-        enable = true;
-        configurationLimit = 7;
+        enable = lib.mkDefault true;
+        configurationLimit = lib.mkDefault 7;
       };
     };
   };

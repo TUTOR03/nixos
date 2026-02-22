@@ -3,10 +3,9 @@
 {
   imports = [
     ./boot.nix
-    ./fonts.nix
     ./hardware.nix
-    ./network.nix
     ./locale.nix
+    ./network.nix
     ./nix.nix
     ./security.nix
     ./services.nix

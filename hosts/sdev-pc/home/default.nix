@@ -16,6 +16,8 @@
   ];
 
   desktops.kde.enable = true;
+  desktops.xdg-user-dirs.enable = true;
+
   programs.plasma = {
     kscreenlocker = {
       autoLock = false;
@@ -43,9 +45,7 @@
     };
   };
 
-  browsers = {
-    firefox.enable = true;
-  };
+  browsers.firefox.enable = true;
   programs.firefox.profiles.default = {
     bookmarks = {
       force = true;
@@ -103,12 +103,11 @@
     ghostty.enable = true;
   };
 
-  tools = {
-    mangohud.enable = true;
-  };
+  tools.mangohud.enable = true;
 
   git.enable = true;
   ssh.enable = true;
+
   programs.ssh.matchBlocks = {
     "github.com" = {
       hostname = "github.com";

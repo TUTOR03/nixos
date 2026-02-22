@@ -11,8 +11,5 @@
     stateVersion = stateVersion;
   };
 
-  programs.home-manager.enable = true;
-  home.packages = with pkgs;[
-    nixpkgs-fmt
-  ];
+  programs.home-manager.enable = lib.mkDefault true;
 }

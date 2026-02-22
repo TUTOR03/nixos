@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, userName, ... }:
 {
   options = {
     desktops.kde.enable = lib.mkEnableOption "Enables KDE Plasma desktop environment";
@@ -48,5 +48,7 @@
         kdePackages.xdg-desktop-portal-kde
       ];
     };
+
+    users.users.${userName}.extraGroups = [ "video" "input" ];
   };
 }

@@ -1,7 +1,6 @@
 { config, lib, ... }:
 
 {
-  security.rtkit.enable = true;
-  security.polkit.enable = true;
-  security.sudo.wheelNeedsPassword = true;
+  security.polkit.enable = lib.mkDefault true;
+  security.sudo.wheelNeedsPassword = lib.mkDefault true;
 }

@@ -4,13 +4,13 @@
   nix = {
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true;
+      auto-optimise-store = lib.mkDefault true;
     };
 
     gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+      automatic = lib.mkDefault true;
+      dates = lib.mkDefault "weekly";
+      options = lib.mkDefault "--delete-older-than 7d";
     };
   };
 }

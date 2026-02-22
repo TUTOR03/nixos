@@ -2,41 +2,22 @@
 
 {
   services = {
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-      jack.enable = true;
-    };
-
-    printing = {
-      enable = true;
-      drivers = [ ];
-    };
-
-    saned.enable = true;
-
     fstrim = {
-      enable = true;
-      interval = "weekly";
+      enable = lib.mkDefault true;
+      interval = lib.mkDefault "weekly";
     };
 
-    udev.enable = true;
+    services.udev.enable = lib.mkDefault true;
 
-    dbus.enable = true;
-
-    journald.extraConfig = ''
-      SystemMaxUse=500M
-      MaxRetentionSec=7day
-    '';
+    dbus.enable = lib.mkDefault true;
   };
 
-  systemd = {
-    extraConfig = ''
-      DefaultTimeoutStopSec=10s
-    '';
-  };
+  systemd.services.journald.extraConfig = ''
+    SystemMaxUse=500M
+    MaxRetentionSec=7day
+  '';
+
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 }
-
-

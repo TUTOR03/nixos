@@ -2,8 +2,8 @@
 
 {
   time.timeZone = lib.mkDefault "Europe/Moscow";
-  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
+  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS = lib.mkDefault "ru_RU.UTF-8";
     LC_IDENTIFICATION = lib.mkDefault "ru_RU.UTF-8";
