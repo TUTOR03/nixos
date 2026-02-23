@@ -1,17 +1,21 @@
 force_keyboard_focus = true
 selection_wrap = true
 theme = "gruvbox"
+hide_action_hints = true
 
 [placeholders]
-"default" = { input = " Search...", list = "No Results" }
+"default" = { input = "Поиск...", list = "Нет результатов" }
 
 [keybinds]
 quick_activate = []
 
+[columns]
+symbols = 1
+
 [providers]
+max_results = 256
 default = [
   "desktopapplications",
-  "menus",
 ]
 
 [[providers.prefixes]]
@@ -33,3 +37,7 @@ provider = "calc"
 [[providers.prefixes]]
 prefix = "$"
 provider = "clipboard"
+
+[[providers.prefixes]]
+prefix = "?"
+provider = "ai"

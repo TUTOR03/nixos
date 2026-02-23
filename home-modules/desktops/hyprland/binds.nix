@@ -46,7 +46,11 @@
         "$mod SHIFT, code:20, Сузить окно сверху, resizeactive, 0 -100"
         "$mod SHIFT, code:21, Расширить окно вниз, resizeactive, 0 100"
 
-        "$mod, SPACE, Запуск приложений, exec, walker"
+        "$mod, SPACE, Запуск приложений, exec, launch-walker"
+        "$mod, GRAVE, Шпаргалка шорткатов, exec, keybindings-menu"
+        "$mod, V, Буфер обмена, exec, launch-walker -m clipboard"
+        "$mod, SLASH, Файлы, exec, launch-walker -m files"
+        "$mod, EQUAL, Калькулятор, exec, launch-walker -m calc"
 
         "$mod, T, Терминал, exec, uwsm app -- ghostty"
         "$mod, B, Браузер, exec, uwsm app -- firefox"
