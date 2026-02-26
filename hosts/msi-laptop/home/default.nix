@@ -9,7 +9,6 @@
     enable = true;
     theme = "gruvbox";
   };
-  desktops.xdg-user-dirs.enable = true;
 
   browsers.firefox.enable = true;
 

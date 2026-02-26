@@ -16,7 +16,6 @@
   ];
 
   desktops.kde.enable = true;
-  desktops.xdg-user-dirs.enable = true;
 
   programs.plasma = {
     kscreenlocker = {
