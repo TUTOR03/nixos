@@ -10,12 +10,12 @@
     udev.enable = lib.mkDefault true;
 
     dbus.enable = lib.mkDefault true;
-  };
 
-  systemd.services.journald.extraConfig = ''
-    SystemMaxUse=500M
-    MaxRetentionSec=7day
-  '';
+    journald.extraConfig = ''
+      SystemMaxUse=500M
+      MaxRetentionSec=7day
+    '';
+  };
 
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
