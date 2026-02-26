@@ -1,7 +1,7 @@
 { config, lib, pkgs, userName, ... }:
 
 {
-  options.hardwaress.audio.enable = lib.mkEnableOption "Enable PipeWire audio system";
+  options.hardwares.audio.enable = lib.mkEnableOption "Enable PipeWire audio system";
 
   config = lib.mkIf config.hardwares.audio.enable {
     security.rtkit.enable = lib.mkDefault true;
