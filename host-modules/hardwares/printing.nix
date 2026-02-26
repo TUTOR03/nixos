@@ -1,9 +1,9 @@
 { config, lib, pkgs, userName, ... }:
 
 {
-  options.hardware.printing.enable = lib.mkEnableOption "Enable printing and scanning support";
+  options.hardwares.printing.enable = lib.mkEnableOption "Enable printing and scanning support";
 
-  config = lib.mkIf config.hardware.printing.enable {
+  config = lib.mkIf config.hardwares.printing.enable {
     services = {
       # CUPS сервер печати
       printing = {

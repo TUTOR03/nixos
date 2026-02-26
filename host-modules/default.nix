@@ -3,7 +3,7 @@
   imports = [
     ./desktops
     ./gaming
-    ./hardware
+    ./hardwares
     ./network
     ./system-tools
     ./caches.nix

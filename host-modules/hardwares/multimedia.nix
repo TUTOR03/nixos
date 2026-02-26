@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  options.hardware.multimedia.enable = lib.mkEnableOption "Enable multimedia codecs and libraries";
+  options.hardwares.multimedia.enable = lib.mkEnableOption "Enable multimedia codecs and libraries";
 
-  config = lib.mkIf config.hardware.multimedia.enable {
+  config = lib.mkIf config.hardwares.multimedia.enable {
     environment.systemPackages = with pkgs; [
       ffmpeg-full
 
