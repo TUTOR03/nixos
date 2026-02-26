@@ -7,7 +7,7 @@
       interval = lib.mkDefault "weekly";
     };
 
-    services.udev.enable = lib.mkDefault true;
+    udev.enable = lib.mkDefault true;
 
     dbus.enable = lib.mkDefault true;
   };
