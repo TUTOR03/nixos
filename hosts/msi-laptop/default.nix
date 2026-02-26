@@ -9,7 +9,7 @@
 
   network.networkmanager.enable = true;
 
-  hardware = {
+  hardwares = {
     bluetooth.enable = true;
     audio.enable = true;
     multimedia.enable = true;
