@@ -1,10 +1,16 @@
-{ config, lib, ... }:
+{ self, config, lib, ... }:
 
+let
+  themeName = config.desktops.hyprland.theme;
+  theme = import (self + "/themes/${themeName}/default.nix");
+in
 {
   config = lib.mkIf config.desktops.hyprland.enable {
     wayland.windowManager.hyprland.settings = {
-      "$activeBorderColor" = "rgb(D5C4A1)";
-      "$inactiveBorderColor" = "rgb(928374)";
+      "$activeBorderColor" = "rgb(${theme.hyprland.activeBorder})";
+      "$inactiveBorderColor" = "rgb(${theme.hyprland.inactiveBorder})";
+      "$groupBorderColor" = "rgb(${theme.hyprland.groupBorder})";
+      "$groupBorderActiveColor" = "rgb(${theme.hyprland.groupBorderActive})";
 
       general = {
         gaps_in = 4;
@@ -25,8 +31,8 @@
       };
 
       group = {
-        "col.border_active" = "$activeBorderColor";
-        "col.border_inactive" = "$inactiveBorderColor";
+        "col.border_active" = "$groupBorderActiveColor";
+        "col.border_inactive" = "$groupBorderColor";
         "col.border_locked_active" = -1;
         "col.border_locked_inactive" = -1;
       };

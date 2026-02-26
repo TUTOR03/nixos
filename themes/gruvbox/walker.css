@@ -1,0 +1,121 @@
+/* Gruvbox theme - Walker */
+
+/* Base palette */
+@define-color bg-hard       #1D2021;
+@define-color bg-primary    #282828;
+@define-color bg-secondary  #3C3836;
+@define-color bg-tertiary   #504945;
+
+@define-color fg-primary    #EBDBB2;
+@define-color fg-secondary  #D5C4A1;
+@define-color fg-tertiary   #BDAE93;
+
+@define-color accent        #FABD2F;
+@define-color accent-red    #FB4934;
+@define-color accent-green  #B8BB26;
+@define-color accent-blue   #83A598;
+@define-color accent-purple #D3869B;
+@define-color accent-aqua   #8EC07C;
+@define-color accent-orange #FE8019;
+
+@define-color border        #EBDBB2;
+
+* {
+  all: unset;
+}
+
+* {
+  font-family: 'JetBrainsMono Nerd Font', monospace;
+  font-size: 16px;
+  color: @fg-primary;
+}
+
+scrollbar {
+  opacity: 0;
+}
+
+.normal-icons {
+  -gtk-icon-size: 16px;
+}
+
+.large-icons {
+  -gtk-icon-size: 32px;
+}
+
+.box-wrapper {
+  background: alpha(@bg-primary, 0.95);
+  padding: 16px;
+  border: 2px solid @border;
+  border-radius: 8px;
+}
+
+.search-container {
+  background: @bg-secondary;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.input placeholder {
+  opacity: 0.5;
+}
+
+.input:focus,
+.input:active {
+  box-shadow: none;
+  outline: none;
+}
+
+child:selected .item-box {
+  background: alpha(@accent, 0.15);
+  border-radius: 4px;
+}
+
+child:selected .item-box * {
+  color: @accent;
+}
+
+.item-box {
+  padding-left: 12px;
+  border-radius: 4px;
+  transition: background 150ms ease;
+}
+
+.item-box:hover {
+  background: alpha(@bg-tertiary, 0.5);
+}
+
+.item-text-box {
+  all: unset;
+  padding: 10px 0;
+}
+
+.item-subtext {
+  font-size: 12px;
+  color: @fg-tertiary;
+  min-height: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.item-image {
+  margin-right: 12px;
+  -gtk-icon-transform: scale(0.85);
+}
+
+.current {
+  font-style: italic;
+}
+
+.keybind-hints {
+  background: @bg-secondary;
+  padding: 8px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+.preview {
+  background: @bg-secondary;
+  border-radius: 4px;
+  padding: 8px;
+}

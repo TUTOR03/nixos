@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, self, ... }:
 
+let
+  themeName = config.desktops.hyprland.theme;
+in
 {
   config = lib.mkIf config.desktops.hyprland.enable {
     programs.walker = {
@@ -8,7 +11,8 @@
       config = { };
     };
 
-    home.file.".config/walker/config.toml".source = ./config.toml;
-    home.file.".config/walker/themes/gruvbox/style.css".source = ./style.css;
+    home.file = {
+      ".config/walker/config.toml".source = ./config.toml;
+    };
   };
 }

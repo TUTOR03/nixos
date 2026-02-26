@@ -5,7 +5,10 @@
     ./sops.nix
   ];
 
-  desktops.hyprland.enable = true;
+  desktops.hyprland = {
+    enable = true;
+    theme = "gruvbox";
+  };
   desktops.xdg-user-dirs.enable = true;
 
   browsers.firefox.enable = true;
@@ -16,6 +19,14 @@
   };
 
   code-editors.vscode.enable = true;
+
+  tools = {
+    file-managers = {
+      yazi.enable = true;
+      nautilus.enable = true;
+    };
+    bluetooth.enable = true;
+  };
 
   git.enable = true;
   ssh.enable = true;
