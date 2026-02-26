@@ -12,7 +12,7 @@ let
 in
 {
   config = lib.mkIf config.desktops.hyprland.enable {
-    home.packages = [
+    home.packages = with pkgs; [
       screenshot-full
       screenshot-area
       screenshot-annotate
