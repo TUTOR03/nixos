@@ -12,7 +12,7 @@
     })
 
     (lib.mkIf config.tools.file-managers.nautilus.enable {
-      home.packages = [ pkgs.gnome.nautilus ];
+      home.packages = [ pkgs.nautilus ];
     })
   ];
 }
