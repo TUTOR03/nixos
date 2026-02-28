@@ -1,19 +1,13 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
-  options.gaming.steam.enable = lib.mkEnableOption "Enable Steam";
+  options.gaming.steam.enable = lib.mkEnableOption "Steam с системными настройками";
 
   config = lib.mkIf config.gaming.steam.enable {
     programs.steam = {
       enable = true;
-      remotePlay.openFirewall = lib.mkDefault true;
-      dedicatedServer.openFirewall = lib.mkDefault true;
-      localNetworkGameTransfers.openFirewall = lib.mkDefault true;
+      remotePlay.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
     };
-
-    environment.systemPackages = with pkgs; [
-      steamcmd
-      protonup-qt
-    ];
   };
 }

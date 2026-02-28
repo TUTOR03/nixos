@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ./desktops
-    ./gaming
-    ./hardwares
-    ./network
-    ./system-tools
     ./caches.nix
+    ./desktops
+    ./fonts.nix
+    ./gaming
+    ./hw
+    ./network
   ];
 }

@@ -1,19 +1,34 @@
 { config, lib, ... }:
 
-{
-  options = {
-    caches = {
-      hyprland.enable = lib.mkEnableOption "Enable Hyprland Cachix cache";
+let
+  caches = {
+    hyprland = {
+      url = "https://hyprland.cachix.org";
+      key = "hyprland.cachix.org-1:a7pgxQMzvd+8n8hGRU3sKvXKJgW05YnP7G1GK98O7UQ=";
+    };
+
+    nix-community = {
+      url = "https://nix-community.cachix.org";
+      key = "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=";
     };
   };
 
-  config = lib.mkMerge [
-    (lib.mkIf config.caches.hyprland.enable {
-      nix.settings = {
-        substituters = [ "https://hyprland.cachix.org" ];
-        trusted-substituters = [ "https://hyprland.cachix.org" ];
-        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
-      };
-    })
-  ];
+  # Генерация опций
+  cacheOptions = lib.mapAttrs' (name: _:
+    lib.nameValuePair "${name}.enable" (lib.mkEnableOption "${name} binary cache")
+  ) caches;
+
+  # Генерация конфига для каждого кэша
+  mkCacheConfig = name: data: lib.mkIf config.caches.${name}.enable {
+    nix.settings = {
+      substituters = [ data.url ];
+      trusted-public-keys = [ data.key ];
+    };
+  };
+
+in
+{
+  options.caches = cacheOptions;
+
+  config = lib.mkMerge (lib.mapAttrsToList mkCacheConfig caches);
 }

@@ -2,7 +2,13 @@
 
 {
   xdg = {
-    enable = lib.mkDefault true;
-    mimeApps.enable = lib.mkDefault true;
+    enable = true;
+    mimeApps.enable = true;
+
+    # Базовые XDG пути
+    cacheHome = "\${HOME}/.cache";
+    configHome = "\${HOME}/.config";
+    dataHome = "\${HOME}/.local/share";
+    stateHome = "\${HOME}/.local/state";
   };
 }

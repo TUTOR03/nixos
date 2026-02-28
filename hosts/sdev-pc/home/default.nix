@@ -1,4 +1,4 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -44,7 +44,16 @@
     };
   };
 
-  browsers.firefox.enable = true;
+  gui = {
+    browsers.firefox.enable = true;
+    code-editors = {
+      vscode.enable = true;
+      zed.enable = true;
+    };
+    gaming.enable = true;
+    mangohud.enable = true;
+  };
+
   programs.firefox.profiles.default = {
     bookmarks = {
       force = true;
@@ -52,38 +61,20 @@
         {
           toolbar = true;
           bookmarks = [
-            {
-              name = "TG";
-              url = "https://web.telegram.org/k";
-            }
-            {
-              name = "Max";
-              url = "https://web.max.ru";
-            }
+            { name = "TG"; url = "https://web.telegram.org/k"; }
+            { name = "Max"; url = "https://web.max.ru"; }
             {
               name = "VPN";
               bookmarks = [
-                {
-                  name = "FI-VPN";
-                  url = "https://vpnpanel.stdev.space:31811/zXHpPk07aRW7LXx/panel";
-                }
+                { name = "FI-VPN"; url = "https://vpnpanel.stdev.space:31811/zXHpPk07aRW7LXx/panel"; }
               ];
             }
             {
               name = "Почта";
               bookmarks = [
-                {
-                  name = "Proton";
-                  url = "https://proton.me";
-                }
-                {
-                  name = "Yandex";
-                  url = "https://mail.yandex.ru";
-                }
-                {
-                  name = "Google";
-                  url = "https://mail.google.com";
-                }
+                { name = "Proton"; url = "https://proton.me"; }
+                { name = "Yandex"; url = "https://mail.yandex.ru"; }
+                { name = "Google"; url = "https://mail.google.com"; }
               ];
             }
           ];
@@ -92,20 +83,14 @@
     };
   };
 
-  code-editors = {
-    vscode.enable = true;
-    zed.enable = true;
-  };
-
-  shell = {
+  cli = {
     bash.enable = true;
     ghostty.enable = true;
+    htop.enable = true;
   };
 
-  tools.mangohud.enable = true;
-
-  git.enable = true;
-  ssh.enable = true;
+  dev.git.enable = true;
+  dev.ssh.enable = true;
 
   programs.ssh.matchBlocks = {
     "github.com" = {

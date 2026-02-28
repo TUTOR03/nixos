@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
   imports = [
-    ./steam.nix
+    ./firefox.nix
   ];
 }

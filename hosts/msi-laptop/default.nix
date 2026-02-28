@@ -9,15 +9,18 @@
 
   network.networkmanager.enable = true;
 
-  hardwares = {
+  hw = {
     bluetooth.enable = true;
     audio.enable = true;
-    multimedia.enable = true;
   };
 
-  system-tools.fonts.enable = true;
+  fonts.enable = true;
 
-  caches.hyprland.enable = true;
+  caches = {
+    hyprland.enable = true;
+    nix-community.enable = true;
+  };
+
   desktops.hyprland.enable = true;
 
   gaming.steam.enable = true;

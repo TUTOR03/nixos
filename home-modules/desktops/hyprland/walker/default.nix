@@ -11,8 +11,6 @@ in
       config = { };
     };
 
-    home.file = {
-      ".config/walker/config.toml".source = ./config.toml;
-    };
+    xdg.configFile."walker/config.toml".source = ./config.toml;
   };
 }

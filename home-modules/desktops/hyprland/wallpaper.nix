@@ -12,7 +12,7 @@ in
     ];
 
     # Копируем обои из assets в систему
-    home.file.".local/share/wallpapers/.keep".text = "";
+    xdg.dataFile."wallpapers/.keep".text = "";
 
     # Автозапуск swww при входе
     wayland.windowManager.hyprland.settings = {

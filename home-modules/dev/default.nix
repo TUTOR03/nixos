@@ -1,6 +1,7 @@
 { config, lib, ... }:
 {
   imports = [
-    ./steam.nix
+    ./git.nix
+    ./ssh.nix
   ];
 }

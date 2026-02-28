@@ -17,6 +17,7 @@
     '';
   };
 
+  # Уменьшаем время ожидания остановки сервисов
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';

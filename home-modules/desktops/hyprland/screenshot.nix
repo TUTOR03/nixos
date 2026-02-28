@@ -19,6 +19,6 @@ in
     ];
 
     # Конфиг swappy
-    home.file.".config/swappy/config".source = ./swappy/config;
+    xdg.configFile."swappy/config".source = ./swappy/config;
   };
 }

@@ -10,25 +10,21 @@
     theme = "gruvbox";
   };
 
-  browsers.firefox.enable = true;
+  gui = {
+    browsers.firefox.enable = true;
+    code-editors.vscode.enable = true;
+    nautilus.enable = true;
+  };
 
-  shell = {
+  cli = {
     bash.enable = true;
     ghostty.enable = true;
+    yazi.enable = true;
+    htop.enable = true;
   };
 
-  code-editors.vscode.enable = true;
-
-  tools = {
-    file-managers = {
-      yazi.enable = true;
-      nautilus.enable = true;
-    };
-    bluetooth.enable = true;
-  };
-
-  git.enable = true;
-  ssh.enable = true;
+  dev.git.enable = true;
+  dev.ssh.enable = true;
 
   programs.ssh.matchBlocks = {
     "github.com" = {

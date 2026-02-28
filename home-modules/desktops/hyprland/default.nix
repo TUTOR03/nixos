@@ -53,9 +53,9 @@ in
     };
 
     # Файлы тем для приложений
-    home.file = {
-      ".config/waybar/theme.css".source = themePath + "/waybar.css";
-      ".config/walker/themes/${themeName}/style.css".source = themePath + "/walker.css";
+    xdg.configFile = {
+      "waybar/theme.css".source = themePath + "/waybar.css";
+      "walker/themes/${themeName}/style.css".source = themePath + "/walker.css";
     };
   };
 }

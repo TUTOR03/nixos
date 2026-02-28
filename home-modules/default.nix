@@ -1,12 +1,9 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ./browsers
-    ./code-editors
+    ./cli
     ./desktops
-    ./shell
-    ./tools
-    ./git.nix
-    ./ssh.nix
+    ./dev
+    ./gui
   ];
 }
