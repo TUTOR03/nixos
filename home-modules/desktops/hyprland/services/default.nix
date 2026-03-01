@@ -2,6 +2,7 @@
 {
   imports = [
     ./cursor.nix
+    ./gtk.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./mako.nix

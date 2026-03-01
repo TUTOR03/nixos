@@ -61,7 +61,10 @@
         "$mod, B, Браузер, exec, uwsm app -- firefox"
         "$mod, E, Файловый менеджер (TUI), exec, uwsm app -- ghostty -e yazi"
         "$mod SHIFT, E, Файловый менеджер (GUI), exec, nautilus"
-        "$mod CTRL, B, Bluetooth, exec, uwsm app -- ghostty -e bluetuith"
+
+        # Сеть и устройства
+        "$mod CTRL, W, WiFi, exec, uwsm app -- ghostty -e impala"
+        "$mod CTRL, B, Bluetooth, exec, uwsm app -- ghostty -e bluetui"
 
         # Смена обоев
         "$mod, W, Выбор обоев, exec, menu-wallpaper"

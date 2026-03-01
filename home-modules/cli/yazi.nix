@@ -8,6 +8,9 @@
       enable = true;
       enableBashIntegration = true;
 
+      # Gruvbox theme
+      theme = builtins.fromTOML (builtins.readFile ./yazi-flavors/gruvbox.yazi/flavor.toml);
+
       settings = {
         manager = {
           ratio = [ 1 3 4 ];

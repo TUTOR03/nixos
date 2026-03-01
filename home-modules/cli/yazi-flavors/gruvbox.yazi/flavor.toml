@@ -1,0 +1,175 @@
+# Gruvbox flavor for Yazi
+# Based on https://github.com/morhetz/gruvbox
+
+[manager]
+cwd = { fg = "#83a598" }
+
+# Hovered
+hovered         = { fg = "#282828", bg = "#ebdbb2" }
+hovered_symlink = { fg = "#282828", bg = "#d3869b" }
+
+# Preview
+preview_hovered = { fg = "#282828", bg = "#ebdbb2" }
+
+# Tab
+tab_active   = { fg = "#282828", bg = "#ebdbb2" }
+tab_inactive = { fg = "#a89984", bg = "#3c3836" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#665c54" }
+
+# Marker
+marker_copied   = { fg = "#98971a", bg = "#98971a" }
+marker_cut      = { fg = "#fb4934", bg = "#fb4934" }
+marker_marked   = { fg = "#d79921", bg = "#d79921" }
+marker_selected = { fg = "#83a598", bg = "#83a598" }
+
+# Count
+count_copied   = { fg = "#282828", bg = "#98971a" }
+count_cut      = { fg = "#282828", bg = "#fb4934" }
+count_marked   = { fg = "#282828", bg = "#d79921" }
+count_selected = { fg = "#282828", bg = "#83a598" }
+
+[status]
+# General
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep   = { fg = "#665c54" }
+perm_type  = { fg = "#ebdbb2" }
+perm_read  = { fg = "#98971a" }
+perm_write = { fg = "#fb4934" }
+perm_exec  = { fg = "#d79921" }
+
+# Progress
+progress_label  = { fg = "#ebdbb2", bg = "#282828" }
+progress_normal = { fg = "#83a598", bg = "#3c3836" }
+progress_error  = { fg = "#fb4934", bg = "#3c3836" }
+
+[mode]
+normal_main = { fg = "#282828", bg = "#98971a", bold = true }
+normal_alt  = { fg = "#98971a", bg = "#3c3836" }
+
+select_main = { fg = "#282828", bg = "#d79921", bold = true }
+select_alt  = { fg = "#d79921", bg = "#3c3836" }
+
+unset_main = { fg = "#282828", bg = "#fb4934", bold = true }
+unset_alt  = { fg = "#fb4934", bg = "#3c3836" }
+
+[input]
+border   = { fg = "#83a598" }
+title    = { fg = "#ebdbb2" }
+value    = { fg = "#a89984" }
+selected = { fg = "#282828", bg = "#ebdbb2" }
+
+[select]
+border   = { fg = "#83a598" }
+active   = { fg = "#ebdbb2" }
+inactive = { fg = "#a89984" }
+
+[tasks]
+border  = { fg = "#83a598" }
+title   = { fg = "#ebdbb2" }
+hovered = { fg = "#282828", bg = "#ebdbb2" }
+
+[which]
+cols = 3
+mask = { bg = "#1d2021" }
+cand = { fg = "#98971a" }
+rest = { fg = "#665c54" }
+desc = { fg = "#ebdbb2" }
+separator = "  "
+separator_style = { fg = "#665c54" }
+
+[help]
+on  = { fg = "#98971a" }
+run = { fg = "#83a598" }
+desc = { fg = "#a89984" }
+hovered = { fg = "#282828", bg = "#ebdbb2" }
+footer = { fg = "#282828", bg = "#98971a" }
+
+[file]
+# Files
+rule_type = { fg = "#d79921" }
+
+# Directories
+directory = { fg = "#83a598", bold = true }
+
+# Executables
+exec = { fg = "#98971a" }
+
+# Symlinks
+link = { fg = "#d3869b" }
+link_to = { fg = "#8ec07c" }
+
+# Orphaned
+orphan = { fg = "#fb4934" }
+
+# Broken
+broken = { fg = "#fb4934", bg = "#282828" }
+
+# Device
+device = { fg = "#d79921" }
+
+# Socket
+socket = { fg = "#b16286" }
+
+# Pipe
+pipe = { fg = "#b16286" }
+
+# Lock
+lock = { fg = "#665c54" }
+
+# By extension
+"*.txt"   = { fg = "#ebdbb2" }
+"*.md"    = { fg = "#ebdbb2" }
+"*.json"  = { fg = "#83a598" }
+"*.toml"  = { fg = "#83a598" }
+"*.yaml"  = { fg = "#83a598" }
+"*.yml"   = { fg = "#83a598" }
+
+"*.png"   = { fg = "#d3869b" }
+"*.jpg"   = { fg = "#d3869b" }
+"*.jpeg"  = { fg = "#d3869b" }
+"*.gif"   = { fg = "#d3869b" }
+"*.webp"  = { fg = "#d3869b" }
+"*.svg"   = { fg = "#d3869b" }
+
+"*.mp3"   = { fg = "#d79921" }
+"*.mp4"   = { fg = "#d79921" }
+"*.mkv"   = { fg = "#d79921" }
+"*.wav"   = { fg = "#d79921" }
+"*.flac"  = { fg = "#d79921" }
+
+"*.zip"   = { fg = "#fe8019" }
+"*.tar"   = { fg = "#fe8019" }
+"*.gz"    = { fg = "#fe8019" }
+"*.rar"   = { fg = "#fe8019" }
+"*.7z"    = { fg = "#fe8019" }
+
+"*.nix"   = { fg = "#83a598" }
+"*.sh"    = { fg = "#98971a" }
+"*.bash"  = { fg = "#98971a" }
+"*.zsh"   = { fg = "#98971a" }
+"*.fish"  = { fg = "#98971a" }
+
+"*.py"    = { fg = "#98971a" }
+"*.js"    = { fg = "#98971a" }
+"*.ts"    = { fg = "#98971a" }
+"*.rs"    = { fg = "#fe8019" }
+"*.go"    = { fg = "#83a598" }
+"*.c"     = { fg = "#83a598" }
+"*.cpp"   = { fg = "#83a598" }
+"*.h"     = { fg = "#8ec07c" }
+
+"*.css"   = { fg = "#83a598" }
+"*.scss"  = { fg = "#83a598" }
+"*.html"  = { fg = "#fe8019" }
+
+"*.git"   = { fg = "#fb4934" }
+"*.gitignore" = { fg = "#665c54" }
+
+"*.lock"  = { fg = "#665c54" }
+"*.sum"   = { fg = "#665c54" }
