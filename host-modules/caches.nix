@@ -13,10 +13,10 @@ let
     };
   };
 
-  # Генерация опций
-  cacheOptions = lib.mapAttrs' (name: _:
-    lib.nameValuePair "${name}.enable" (lib.mkEnableOption "${name} binary cache")
-  ) caches;
+  # Генерация вложенных опций для каждого кэша
+  mkCacheOptions = name: {
+    enable = lib.mkEnableOption "${name} binary cache";
+  };
 
   # Генерация конфига для каждого кэша
   mkCacheConfig = name: data: lib.mkIf config.caches.${name}.enable {
@@ -28,7 +28,7 @@ let
 
 in
 {
-  options.caches = cacheOptions;
+  options.caches = lib.mapAttrs mkCacheOptions caches;
 
   config = lib.mkMerge (lib.mapAttrsToList mkCacheConfig caches);
 }
