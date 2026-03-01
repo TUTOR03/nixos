@@ -32,6 +32,26 @@ in
         description = "Размер курсора в пикселях";
       };
     };
+
+    timeouts = {
+      lock = lib.mkOption {
+        type = lib.types.int;
+        default = 300;
+        description = "Секунды до блокировки экрана";
+      };
+
+      dpms = lib.mkOption {
+        type = lib.types.int;
+        default = 600;
+        description = "Секунды до выключения экрана";
+      };
+
+      suspend = lib.mkOption {
+        type = lib.types.nullOr lib.types.int;
+        default = null;
+        description = "Секунды до сна (null = отключено)";
+      };
+    };
   };
 
   imports = [

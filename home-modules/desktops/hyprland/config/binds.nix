@@ -51,7 +51,7 @@
 
         # Запуск walker
         "$mod, SPACE, Запуск приложений, exec, launch-walker"
-        "$mod, GRAVE, Шпаргалка шорткатов, exec, keybindings-menu"
+        "$mod, GRAVE, Шпаргалка шорткатов, exec, menu-keybindings"
         "$mod, V, Буфер обмена, exec, launch-walker -m clipboard"
         "$mod, SLASH, Файлы, exec, launch-walker -m files"
         "$mod, EQUAL, Калькулятор, exec, launch-walker -m calc"
@@ -64,12 +64,37 @@
         "$mod CTRL, B, Bluetooth, exec, uwsm app -- ghostty -e bluetuith"
 
         # Смена обоев
-        "$mod, W, Выбор обоев, exec, wallpaper-menu"
+        "$mod, W, Выбор обоев, exec, menu-wallpaper"
 
         # Скриншоты
-        ", Print, Скриншот экрана, exec, screenshot-full"
-        "$mod, Print, Скриншот области, exec, screenshot-area"
-        "$mod SHIFT, Print, Скриншот с аннотацией, exec, screenshot-annotate"
+        ", Print, Скриншот экрана, exec, cmd-screenshot-full"
+        "$mod, Print, Скриншот области, exec, cmd-screenshot-area"
+        "$mod SHIFT, Print, Скриншот с аннотацией, exec, cmd-screenshot-annotate"
+
+        # Lock screen
+        "$mod, L, Заблокировать экран, exec, loginctl lock-session"
+
+        # Media playback
+        ", XF86AudioPlay, Play/Pause, exec, playerctl play-pause"
+        ", XF86AudioNext, Следующий трек, exec, playerctl next"
+        ", XF86AudioPrev, Предыдущий трек, exec, playerctl previous"
+
+        # Notifications
+        "$mod, N, Восстановить уведомления, exec, makoctl restore"
+        "$mod SHIFT, N, Скрыть все уведомления, exec, makoctl dismiss --all"
+      ];
+
+      # Media keys that work even on lock screen
+      binddl = [
+        # Volume
+        ", XF86AudioRaiseVolume, Громкость+, exec, swayosd-client --output-volume raise"
+        ", XF86AudioLowerVolume, Громкость-, exec, swayosd-client --output-volume lower"
+        ", XF86AudioMute, Отключить звук, exec, swayosd-client --output-volume mute-toggle"
+        ", XF86AudioMicMute, Отключить микрофон, exec, swayosd-client --input-volume mute-toggle"
+
+        # Brightness
+        ", XF86MonBrightnessUp, Яркость+, exec, swayosd-client --brightness raise"
+        ", XF86MonBrightnessDown, Яркость-, exec, swayosd-client --brightness lower"
       ];
 
       bindmd = [

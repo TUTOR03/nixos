@@ -31,4 +31,36 @@ rec {
     groupBorder = builtins.substring 1 6 colors.dark3;
     groupBorderActive = builtins.substring 1 6 colors.light3;
   };
+
+  hyprlock = {
+    accent = colors.bright-blue;
+    background = colors.dark0;
+    inputBg = colors.dark2;
+    textColor = colors.light1;
+    subtextColor = colors.light3;
+  };
+
+  mako = {
+    background = colors.dark1;
+    text = colors.light1;
+    border = colors.dark3;
+    lowUrgency = colors.bright-blue;
+    normalUrgency = colors.bright-green;
+    criticalUrgency = colors.bright-red;
+  };
+
+  swayosd = {
+    background = colors.dark1;
+    bar = colors.bright-blue;
+    barBg = colors.dark3;
+    text = colors.light1;
+  };
+
+  satty = {
+    brush = colors.bright-red;
+    text = colors.light1;
+    shape = colors.bright-blue;
+    arrow = colors.bright-yellow;
+    highlight = colors.bright-green;
+  };
 }

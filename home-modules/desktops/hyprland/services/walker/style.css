@@ -1,16 +1,24 @@
+/* Walker theme style
+ * Imports theme colors from theme.css
+ * Theme variables: @dark0-4, @light0-4, @bright-*, @gray
+ */
+
 @import 'theme.css';
 
+/* Global reset and base styles */
 * {
   all: unset;
   font-family: 'JetBrainsMono Nerd Font', monospace;
-  font-size: 16px;
+  font-size: 15px;
   color: @light2;
 }
 
+/* Hide scrollbar but allow scrolling */
 scrollbar {
   opacity: 0;
 }
 
+/* Icon sizes */
 .normal-icons {
   -gtk-icon-size: 16px;
 }
@@ -19,20 +27,35 @@ scrollbar {
   -gtk-icon-size: 32px;
 }
 
+/* Main container window */
+.window {
+  background: transparent;
+}
+
+/* Main wrapper box */
 .box-wrapper {
   background: alpha(@dark1, 0.95);
-  padding: 16px;
-  border: 1px solid @dark2;
-  border-radius: 8px;
+  padding: 16px 20px;
+  border: 1px solid @dark3;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px alpha(@dark0, 0.5);
 }
 
+/* Search input container */
 .search-container {
   background: @dark2;
-  padding: 12px;
-  border-radius: 6px;
-  margin-bottom: 8px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: 1px solid transparent;
+  transition: border-color 200ms ease;
 }
 
+.search-container:focus-within {
+  border-color: alpha(@bright-blue, 0.5);
+}
+
+/* Input field placeholder */
 .input placeholder {
   opacity: 0.5;
 }
@@ -43,56 +66,103 @@ scrollbar {
   outline: none;
 }
 
+/* Results list */
+.list {
+  margin: 0 -8px;
+}
+
+/* Selected item styling */
 child:selected .item-box {
-  background: alpha(@light3, 0.15);
-  border-radius: 4px;
+  background: alpha(@bright-blue, 0.15);
+  border-radius: 6px;
 }
 
 child:selected .item-box * {
-  color: @light2;
+  color: @light1;
 }
 
+/* Individual item box */
 .item-box {
-  padding-left: 12px;
-  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 2px 8px;
+  border-radius: 6px;
   transition: background 150ms ease;
 }
 
 .item-box:hover {
-  background: alpha(@dark3, 0.5);
+  background: alpha(@dark3, 0.4);
 }
 
+/* Item text container */
 .item-text-box {
   all: unset;
-  padding: 10px 0;
+  padding: 6px 0;
 }
 
+/* Item name/title */
+.item-name {
+  font-weight: 500;
+}
+
+/* Item subtext/description */
 .item-subtext {
   font-size: 12px;
-  color: @light3;
-  min-height: 0px;
-  margin: 0px;
-  padding: 0px;
+  color: @light4;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
 }
 
+/* Item icon */
 .item-image {
   margin-right: 12px;
-  -gtk-icon-transform: scale(0.85);
+  -gtk-icon-transform: scale(0.9);
 }
 
+/* Currently selected indicator */
 .current {
   font-style: italic;
+  color: @bright-blue;
 }
 
+/* Keybind hints section at bottom */
 .keybind-hints {
   background: @dark2;
-  padding: 8px;
-  margin-top: 8px;
-  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: @light4;
 }
 
+/* Preview pane */
 .preview {
   background: @dark2;
-  border-radius: 4px;
-  padding: 8px;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+/* AI provider styling */
+.ai-item {
+  border-left: 2px solid @bright-purple;
+  padding-left: 10px;
+}
+
+/* Websearch provider styling */
+.websearch-item {
+  border-left: 2px solid @bright-blue;
+  padding-left: 10px;
+}
+
+/* Calculator result styling */
+.calc-result {
+  font-weight: bold;
+  color: @bright-green;
+}
+
+/* Clipboard item styling */
+.clipboard-item {
+  border-left: 2px solid @bright-aqua;
+  padding-left: 10px;
 }

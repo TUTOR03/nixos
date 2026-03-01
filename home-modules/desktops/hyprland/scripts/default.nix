@@ -3,12 +3,17 @@
 {
   config = lib.mkIf config.desktops.hyprland.enable {
     home.packages = [
+      # Application launchers
       (pkgs.writeShellScriptBin "launch-walker" (builtins.readFile ./launch-walker.sh))
-      (pkgs.writeShellScriptBin "keybindings-menu" (builtins.readFile ./keybindings-menu.sh))
-      (pkgs.writeShellScriptBin "screenshot-full" (builtins.readFile ./screenshot-full.sh))
-      (pkgs.writeShellScriptBin "screenshot-area" (builtins.readFile ./screenshot-area.sh))
-      (pkgs.writeShellScriptBin "screenshot-annotate" (builtins.readFile ./screenshot-annotate.sh))
-      (pkgs.writeShellScriptBin "wallpaper-menu" (builtins.readFile ./wallpaper-menu.sh))
+
+      # Interactive menus
+      (pkgs.writeShellScriptBin "menu-keybindings" (builtins.readFile ./menu-keybindings.sh))
+      (pkgs.writeShellScriptBin "menu-wallpaper" (builtins.readFile ./menu-wallpaper.sh))
+
+      # Screenshot commands
+      (pkgs.writeShellScriptBin "cmd-screenshot-full" (builtins.readFile ./cmd-screenshot-full.sh))
+      (pkgs.writeShellScriptBin "cmd-screenshot-area" (builtins.readFile ./cmd-screenshot-area.sh))
+      (pkgs.writeShellScriptBin "cmd-screenshot-annotate" (builtins.readFile ./cmd-screenshot-annotate.sh))
     ];
   };
 }

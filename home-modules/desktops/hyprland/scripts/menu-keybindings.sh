@@ -1,10 +1,39 @@
 #!/usr/bin/env bash
+#
+# menu-keybindings - Меню шорткатов Hyprland
+#
+# Описание:
+#   Отображает список всех клавиатурных привязок Hyprland в интерактивном меню.
+#   Динамически получает привязки через hyprctl и преобразует keycode в символы.
+#
+# Использование:
+#   menu-keybindings        # Показать интерактивное меню
+#   menu-keybindings --print # Вывести в stdout
+#   menu-keybindings -p      # То же самое
+#
+# Зависимости:
+#   - hyprctl (Hyprland)
+#   - jq (JSON parser)
+#   - xkbcli (XKB keyboard info)
+#   - walker (для dmenu режима)
+#
 
+# Кэш для маппинга keycode -> символ
 declare -A KEYCODE_SYM_MAP
 
+# =============================================================================
+# ФУНКЦИИ
+# =============================================================================
+
+# build_keymap_cache - Создаёт кэш маппинга keycode -> XKB символ
+#
+# Использует xkbcli для получения текущей раскладки клавиатуры
+# и создаёт ассоциативный массив KEYCODE_SYM_MAP
+#
 build_keymap_cache() {
   local keymap
   keymap="$(xkbcli compile-keymap 2>/dev/null)" || return 1
+
   while IFS=, read -r code sym; do
     [[ -z $code || -z $sym ]] && continue
     KEYCODE_SYM_MAP["$code"]="$sym"
@@ -30,10 +59,17 @@ build_keymap_cache() {
   )
 }
 
+# lookup_keycode_cached - Получает символ по keycode из кэша
+# Аргументы: $1 - keycode (число)
+# Вывод: символ клавиши (например, "a", "Return", "space")
+#
 lookup_keycode_cached() {
   printf '%s\n' "${KEYCODE_SYM_MAP[$1]}"
 }
 
+# parse_keycodes - Преобразует code:N в символы в строках привязок
+# Читает строки из stdin, заменяет code:N на символы
+#
 parse_keycodes() {
   while IFS= read -r line; do
     if [[ $line =~ code:([0-9]+) ]]; then
@@ -55,6 +91,17 @@ parse_keycodes() {
   done
 }
 
+# dynamic_bindings - Получает привязки из hyprctl
+# Выводит строки формата: modmask,key,description
+#
+# Modmask значения:
+#   0 = нет модификатора
+#   1 = SHIFT
+#   4 = CTRL
+#   8 = ALT
+#   64 = SUPER
+#   Комбинации = сумма значений
+#
 dynamic_bindings() {
   hyprctl -j binds 2>/dev/null |
     jq -r '.[] | select(.description != "") | {modmask, key, keycode, description} | "\(.modmask),\(.key)@\(.keycode),\(.description)"' 2>/dev/null |
@@ -79,6 +126,9 @@ dynamic_bindings() {
       -e 's/^77,/SUPER SHIFT CTRL ALT,/'
 }
 
+# parse_bindings - Форматирует привязки для вывода
+# Преобразует "MOD,KEY,DESC" в "MOD + KEY → DESC"
+#
 parse_bindings() {
   awk -F, '{
     key_combo = $1 " + " $2;
@@ -92,6 +142,9 @@ parse_bindings() {
   }'
 }
 
+# prioritize_entries - Сортирует привязки по приоритету
+# Важные привязки показываются первыми
+#
 prioritize_entries() {
   awk '{
     line = $0
@@ -104,18 +157,29 @@ prioritize_entries() {
     if (match(line, /Переместить окно/)) prio = 5
     if (match(line, /фокус/)) prio = 6
     if (match(line, /Расширить|Сузить/)) prio = 7
+    if (match(line, /Заблокировать/)) prio = 8
+    if (match(line, /Скриншот/)) prio = 9
+    if (match(line, /Громкость|Яркость/)) prio = 10
     printf "%d\t%s\n", prio, line
   }' | sort -k1,1n -k2,2 | cut -f2-
 }
 
+# output_keybindings - Главная функция вывода привязок
+#
 output_keybindings() {
   build_keymap_cache
   dynamic_bindings | sort -u | parse_keycodes | parse_bindings | prioritize_entries
 }
 
+# =============================================================================
+# ОСНОВНОЙ КОД
+# =============================================================================
+
 if [[ $1 == "--print" || $1 == "-p" ]]; then
+  # Режим вывода в stdout
   output_keybindings
 else
+  # Интерактивный режим с Walker dmenu
   monitor_height=$(hyprctl monitors -j 2>/dev/null | jq -r '.[] | select(.focused == true) | .height' 2>/dev/null)
   menu_height=$((monitor_height * 40 / 100))
   output_keybindings | walker --dmenu -p 'Шорткаты' --width 700 --height "${menu_height:-400}"
