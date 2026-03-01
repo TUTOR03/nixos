@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -8,6 +8,10 @@
   desktops.hyprland = {
     enable = true;
     theme = "gruvbox";
+    cursor = {
+      name = "Bibata-Modern-Classic";
+      size = 24;
+    };
   };
 
   gui = {

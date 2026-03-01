@@ -2,34 +2,42 @@
 
 let
   themeName = config.desktops.hyprland.theme;
-  themePath = self + "/themes/${themeName}";
-  theme = import (themePath + "/default.nix");
+  theme = import ./themes/${themeName}/default.nix;
 in
 {
   options.desktops.hyprland = {
     enable = lib.mkEnableOption "Конфигурация Hyprland";
+
     theme = lib.mkOption {
       type = lib.types.str;
       default = "gruvbox";
-      description = "Название темы из папки themes/";
+    };
+
+    themeData = lib.mkOption {
+      type = lib.types.attrs;
+      default = theme;
+      internal = true;
+    };
+
+    cursor = {
+      name = lib.mkOption {
+        type = lib.types.str;
+        example = "Bibata-Modern-Classic";
+        description = "Имя темы курсора";
+      };
+
+      size = lib.mkOption {
+        type = lib.types.int;
+        example = 24;
+        description = "Размер курсора в пикселях";
+      };
     };
   };
 
   imports = [
-    ./binds.nix
-    ./cursor.nix
-    ./env.nix
-    ./general.nix
-    ./inputs.nix
-    ./looknfeel.nix
-    ./monitors.nix
-    ./screenshot.nix
-    ./wallpaper.nix
-    ./windows.nix
-    ./workspaces.nix
-    ./waybar
-    ./walker
+    ./config
     ./scripts
+    ./services
   ];
 
   config = lib.mkIf config.desktops.hyprland.enable {
@@ -42,20 +50,11 @@ in
         enable = false;
         variables = [ "--all" ];
       };
-
-      settings = {
-        exec-once = [
-          "uwsm app -- waybar"
-          "uwsm-app -- elephant"
-          "uwsm-app -- walker --gapplication-service"
-        ];
-      };
     };
 
-    # Файлы тем для приложений
     xdg.configFile = {
-      "waybar/theme.css".source = themePath + "/waybar.css";
-      "walker/themes/${themeName}/style.css".source = themePath + "/walker.css";
+      "waybar/theme.css".source = ./themes/${themeName}/theme.css;
+      "walker/themes/${themeName}/theme.css".source = ./themes/${themeName}/theme.css;
     };
   };
 }

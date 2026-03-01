@@ -1,8 +1,7 @@
-{ self, config, lib, ... }:
+{ config, lib, ... }:
 
 let
-  themeName = config.desktops.hyprland.theme;
-  theme = import (self + "/themes/${themeName}/default.nix");
+  theme = config.desktops.hyprland.themeData;
 in
 {
   config = lib.mkIf config.desktops.hyprland.enable {

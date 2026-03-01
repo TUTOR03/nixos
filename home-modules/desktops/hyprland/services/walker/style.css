@@ -1,33 +1,10 @@
-/* Gruvbox theme for Walker */
-
-/* Base palette */
-@define-color bg-hard       #1D2021;
-@define-color bg-primary    #282828;
-@define-color bg-secondary  #3C3836;
-@define-color bg-tertiary   #504945;
-
-@define-color fg-primary    #EBDBB2;
-@define-color fg-secondary  #D5C4A1;
-@define-color fg-tertiary   #BDAE93;
-
-@define-color accent        #FABD2F;
-@define-color accent-red    #FB4934;
-@define-color accent-green  #B8BB26;
-@define-color accent-blue   #83A598;
-@define-color accent-purple #D3869B;
-@define-color accent-aqua   #8EC07C;
-@define-color accent-orange #FE8019;
-
-@define-color border        #EBDBB2;
+@import 'theme.css';
 
 * {
   all: unset;
-}
-
-* {
   font-family: 'JetBrainsMono Nerd Font', monospace;
   font-size: 16px;
-  color: @fg-primary;
+  color: @light2;
 }
 
 scrollbar {
@@ -43,14 +20,14 @@ scrollbar {
 }
 
 .box-wrapper {
-  background: alpha(@bg-primary, 0.95);
+  background: alpha(@dark1, 0.95);
   padding: 16px;
-  border: 2px solid @border;
+  border: 1px solid @dark2;
   border-radius: 8px;
 }
 
 .search-container {
-  background: @bg-secondary;
+  background: @dark2;
   padding: 12px;
   border-radius: 6px;
   margin-bottom: 8px;
@@ -67,12 +44,12 @@ scrollbar {
 }
 
 child:selected .item-box {
-  background: alpha(@accent, 0.15);
+  background: alpha(@light3, 0.15);
   border-radius: 4px;
 }
 
 child:selected .item-box * {
-  color: @accent;
+  color: @light2;
 }
 
 .item-box {
@@ -82,7 +59,7 @@ child:selected .item-box * {
 }
 
 .item-box:hover {
-  background: alpha(@bg-tertiary, 0.5);
+  background: alpha(@dark3, 0.5);
 }
 
 .item-text-box {
@@ -92,7 +69,7 @@ child:selected .item-box * {
 
 .item-subtext {
   font-size: 12px;
-  color: @fg-tertiary;
+  color: @light3;
   min-height: 0px;
   margin: 0px;
   padding: 0px;
@@ -108,14 +85,14 @@ child:selected .item-box * {
 }
 
 .keybind-hints {
-  background: @bg-secondary;
+  background: @dark2;
   padding: 8px;
   margin-top: 8px;
   border-radius: 4px;
 }
 
 .preview {
-  background: @bg-secondary;
+  background: @dark2;
   border-radius: 4px;
   padding: 8px;
 }

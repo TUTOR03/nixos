@@ -20,7 +20,7 @@
     hyprland.enable = true;
     nix-community.enable = true;
   };
-
+  
   desktops.hyprland.enable = true;
 
   gaming.steam.enable = true;

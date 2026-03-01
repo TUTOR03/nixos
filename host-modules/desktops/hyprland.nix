@@ -5,8 +5,6 @@
   };
 
   config = lib.mkIf config.desktops.hyprland.enable {
-    caches.hyprland.enable = true;
-
     programs.hyprland = {
       enable = true;
       package = pkgs.hyprland;
@@ -29,8 +27,18 @@
     };
 
     environment.sessionVariables = {
+      # Wayland для Electron приложений
       NIXOS_OZONE_WL = "1";
+      # Wayland для Firefox
       MOZ_ENABLE_WAYLAND = "1";
+      # Wayland для Qt приложений
+      QT_QPA_PLATFORM = "wayland;xcb";
+      # Wayland для SDL игр
+      SDL_VIDEODRIVER = "wayland";
+      # Wayland для GTK приложений
+      GDK_BACKEND = "wayland,x11";
+      # Wayland для Clutter приложений
+      CLUTTER_BACKEND = "wayland";
     };
 
     users.users.${userName}.extraGroups = [ "video" "input" ];

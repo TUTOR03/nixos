@@ -1,7 +1,6 @@
 @import 'theme.css';
 
 * {
-  /* Reset all default properties */
   border: none;
   border-radius: 0;
   margin: 0;
@@ -12,7 +11,6 @@
   text-shadow: none;
   background: none;
   transition: none;
-
   font-family: 'Google Sans', 'JetBrainsMono Nerd Font Propo';
   font-size: 14px;
   font-weight: 600;
@@ -22,7 +20,6 @@ window#waybar {
   background-color: transparent;
 }
 
-/* All module groups or individual modules should have same surface and spacings */
 .module {
   min-height: 24px;
   min-width: 24px;
@@ -37,8 +34,8 @@ window#waybar {
 #battery,
 #language,
 #custom-power {
-  background-color: @bg-primary;
-  color: @content-primary;
+  background-color: @dark1;
+  color: @light2;
   border-radius: 6px;
   padding: 6px 10px;
 }
@@ -52,21 +49,19 @@ window#waybar {
   margin-right: 8px;
 }
 
-/* Consistent style for all tooltips */
 tooltip {
-  background-color: @bg-primary;
-  border: 2px solid @stroke-primary;
+  background-color: @dark1;
+  border: 1px solid @dark3;
   border-radius: 6px;
 }
 
 tooltip label {
-  color: @content-primary;
+  color: @light2;
 }
 
-/* Styles for workspace module */
 #workspaces button {
-  background-color: @bg-secondary;
-  color: @content-primary;
+  background-color: @dark2;
+  color: @light2;
   border-radius: 4px;
   min-width: 24px;
   min-height: 24px;
@@ -79,22 +74,21 @@ tooltip label {
 }
 
 #workspaces button:hover {
-  background-color: @bg-secondary-hover;
+  background-color: @dark3;
 }
 
 #workspaces button.active {
-  background-color: @bg-primary-active;
-  color: @content-primary-active;
+  background-color: @light3;
+  color: @dark1;
 }
 
-/* Make power button square */
 #custom-power {
   font-size: 16px;
   padding: 6px;
 }
 
 #custom-power:hover {
-  background-color: @bg-primary-active;
-  color: @content-primary-active;
+  background-color: @light3;
+  color: @dark1;
   transition: all ease-in 200ms;
 }

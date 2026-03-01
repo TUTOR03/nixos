@@ -1,13 +1,10 @@
-#!/bin/bash
-
-# Отображает шорткаты Hyprland через walker в режиме dmenu
+#!/usr/bin/env bash
 
 declare -A KEYCODE_SYM_MAP
 
 build_keymap_cache() {
   local keymap
   keymap="$(xkbcli compile-keymap 2>/dev/null)" || return 1
-
   while IFS=, read -r code sym; do
     [[ -z $code || -z $sym ]] && continue
     KEYCODE_SYM_MAP["$code"]="$sym"
@@ -83,24 +80,20 @@ dynamic_bindings() {
 }
 
 parse_bindings() {
-  awk -F, '
-{
+  awk -F, '{
     key_combo = $1 " + " $2;
     gsub(/^[ \t]*\+?[ \t]*/, "", key_combo);
     gsub(/[ \t]+$/, "", key_combo);
     gsub(/[ \t]+/, " ", key_combo);
-
     action = $3;
-
     if (action != "") {
-        printf "%-30s → %s\n", key_combo, action;
+      printf "%-30s → %s\n", key_combo, action;
     }
-}'
+  }'
 }
 
 prioritize_entries() {
-  awk '
-  {
+  awk '{
     line = $0
     prio = 50
     if (match(line, /Терминал/)) prio = 0
@@ -111,11 +104,8 @@ prioritize_entries() {
     if (match(line, /Переместить окно/)) prio = 5
     if (match(line, /фокус/)) prio = 6
     if (match(line, /Расширить|Сузить/)) prio = 7
-
     printf "%d\t%s\n", prio, line
-  }' |
-  sort -k1,1n -k2,2 |
-  cut -f2-
+  }' | sort -k1,1n -k2,2 | cut -f2-
 }
 
 output_keybindings() {
@@ -128,7 +118,5 @@ if [[ $1 == "--print" || $1 == "-p" ]]; then
 else
   monitor_height=$(hyprctl monitors -j 2>/dev/null | jq -r '.[] | select(.focused == true) | .height' 2>/dev/null)
   menu_height=$((monitor_height * 40 / 100))
-
-  output_keybindings |
-    walker --dmenu -p 'Шорткаты' --width 700 --height "${menu_height:-400}"
+  output_keybindings | walker --dmenu -p 'Шорткаты' --width 700 --height "${menu_height:-400}"
 fi

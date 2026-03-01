@@ -11,5 +11,9 @@
       "waybar/config.jsonc".source = ./config.jsonc;
       "waybar/style.css".source = ./style.css;
     };
+
+    wayland.windowManager.hyprland.settings.exec-once = [
+      "uwsm app -- waybar"
+    ];
   };
 }
