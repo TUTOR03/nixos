@@ -22,10 +22,6 @@
       window-padding-x = 10
       window-padding-y = 10
       window-theme = auto
-
-      # Performance
-      gpu-renderer = auto
-      vsync = true
     '';
   };
 }
