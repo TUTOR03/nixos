@@ -75,7 +75,7 @@
         };
         edgeBarrier = lib.mkDefault 0;
         effects = {
-          shakeCursor.enable =  lib.mkDefault false;
+          shakeCursor.enable = lib.mkDefault false;
           blur.enable = lib.mkDefault false;
           desktopSwitching.animation = "slide";
         };

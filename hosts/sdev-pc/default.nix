@@ -14,13 +14,18 @@
     audio.enable = true;
   };
 
+  caches = {
+    hyprland.enable = true;
+    nix-community.enable = true;
+  };
+
   fonts.enable = true;
 
   desktops.kde.enable = true;
 
   gaming.steam.enable = true;
 
-  programs.nekoray = {
+  programs.throne = {
     enable = true;
     tunMode.enable = true;
   };

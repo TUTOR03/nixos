@@ -6,7 +6,20 @@
   config = lib.mkIf config.dev.ssh.enable {
     programs.ssh = {
       enable = true;
-      addKeysToAgent = "yes";
+      enableDefaultConfig = false;
+      matchBlocks = {
+        "*" = {
+          forwardAgent = false;
+          addKeysToAgent = "yes";
+          compression = false;
+          serverAliveInterval = 0;
+          serverAliveCountMax = 3;
+          hashKnownHosts = false;
+          controlMaster = "no";
+          controlPath = "~/.ssh/master-%r@%n:%p";
+          controlPersist = "no";
+        };
+      };
     };
 
     services.ssh-agent.enable = true;

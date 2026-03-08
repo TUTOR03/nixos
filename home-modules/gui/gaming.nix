@@ -7,7 +7,7 @@
     home.packages = with pkgs; [
       # Лаунчеры
       lutris
-      
+
       # GUI для управления Proton-GE
       protonup-qt
 

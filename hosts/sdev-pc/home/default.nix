@@ -8,11 +8,12 @@
   home.packages = with pkgs; [
     discord
     obsidian
-    telegram-desktop
+    unstable.telegram-desktop
     qbittorrent
     vlc
     spotify
     unstable.protonplus
+    nixpkgs-fmt
   ];
 
   desktops.kde.enable = true;

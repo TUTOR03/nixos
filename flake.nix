@@ -2,11 +2,11 @@
   description = "Modular NixOS config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -132,7 +132,7 @@
           hostName = "sdev-pc";
           userName = "sdev";
           userEmail = "stukalov.dev@proton.me";
-          stateVersion = "25.05";
+          stateVersion = "25.11";
           extraHostModules = [
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
@@ -142,6 +142,7 @@
             sops-nix.homeManagerModules.sops
             plasma-manager.homeModules.plasma-manager
             arkenfox-nixos.hmModules.arkenfox
+            walker.homeManagerModules.default
           ];
         }
         {
@@ -150,7 +151,7 @@
           hostName = "msi-laptop";
           userName = "sdev";
           userEmail = "stukalov.dev@proton.me";
-          stateVersion = "25.05";
+          stateVersion = "25.11";
           extraHostModules = [
             disko.nixosModules.disko
             sops-nix.nixosModules.sops

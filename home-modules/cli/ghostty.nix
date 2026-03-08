@@ -8,7 +8,7 @@
 
     xdg.configFile."ghostty/config".text = ''
       # Theme
-      theme = GruvboxDark
+      theme = Gruvbox Dark
 
       # Cursor
       cursor-style = bar

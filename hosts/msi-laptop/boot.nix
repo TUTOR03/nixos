@@ -2,7 +2,7 @@
 
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
     extraModulePackages = [ config.boot.kernelPackages.nvidia_x11 ];
 
     initrd = {

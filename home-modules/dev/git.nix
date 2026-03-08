@@ -7,10 +7,13 @@
     programs.git = {
       enable = true;
       lfs.enable = true;
-      userName = userName;
-      userEmail = userEmail;
 
-      extraConfig = {
+      settings = {
+        user = {
+          email = userEmail;
+          name = userName;
+        };
+
         init.defaultBranch = "master";
         pull.rebase = true;
 
